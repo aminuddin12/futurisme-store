@@ -34,6 +34,7 @@ export default function ThemeSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
+        // Button utama: dark:bg-gray-800, dark:hover:bg-gray-700, dark:border-gray-700, dark:text-gray-300
         className="w-9 h-9 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-all border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300"
         aria-label="Ubah Tema"
       >
@@ -41,7 +42,8 @@ export default function ThemeSwitcher() {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-36 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700 py-1 z-50">
+        // Dropdown Menu: dark:bg-gray-800, dark:border-gray-700
+        <div className="absolute right-0 mt-2 w-36 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700 py-1 z-50 overflow-hidden">
           {(['light', 'dark', 'system'] as const).map((mode) => (
             <button
               key={mode}
@@ -49,6 +51,7 @@ export default function ThemeSwitcher() {
                 setTheme(mode);
                 setIsOpen(false);
               }}
+              // Item: dark:hover:bg-gray-700, dark:text-gray-300, dark:bg-green-900/20 (active)
               className={`w-full text-left px-4 py-2 text-sm flex items-center gap-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors
                 ${theme === mode ? 'text-primary font-bold bg-green-50 dark:bg-green-900/20' : 'text-gray-600 dark:text-gray-300'}
               `}

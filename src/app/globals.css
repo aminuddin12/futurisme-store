@@ -1,31 +1,58 @@
 @import "tailwindcss";
 
-/* Konfigurasi Dark Mode manual untuk v4 jika diperlukan, 
-   tapi v4 biasanya otomatis mendeteksi media query. 
-   Untuk class-based (next-themes), tambahkan ini: */
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  /* Definisi warna custom jika perlu */
-  --color-primary: #00AA5B;
-  --color-secondary: #EE4D2D;
-  --color-dark: #1F2937;
+/* Definisi Variabel CSS untuk Tema */
+:root {
+  --background: #f9fafb; /* gray-50 equivalent */
+  --foreground: #1f2937; /* gray-800 equivalent */
+  
+  /* Primary Colors (ShopModern Green) */
+  --primary: #00AA5B;
+  --primary-foreground: #ffffff;
+
+  /* Secondary Colors (ShopModern Orange/Red) */
+  --secondary: #EE4D2D;
+  --secondary-foreground: #ffffff;
+  
+  /* Border Colors */
+  --border: #e5e7eb; /* gray-200 */
 }
 
-/* Utilities kustom Anda */
+/* Warna saat Dark Mode Aktif */
+.dark {
+  --background: #111827; /* gray-900 equivalent */
+  --foreground: #f3f4f6; /* gray-100 equivalent */
+  --border: #374151; /* gray-700 */
+}
+
+/* Terapkan variabel ke body */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scrollbar Styling (Tetap sama) */
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: var(--background); 
 }
 ::-webkit-scrollbar-thumb {
     background: #d1d5db; 
     border-radius: 10px;
 }
+.dark ::-webkit-scrollbar-thumb {
+    background: #4b5563; /* gray-600 for dark mode */
+}
 ::-webkit-scrollbar-thumb:hover {
     background: #9ca3af; 
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #6b7280; /* gray-500 for dark mode */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
