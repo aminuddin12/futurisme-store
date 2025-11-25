@@ -16,11 +16,11 @@ export default function ProductPage() {
   };
 
   return (
-    <main className="bg-white">
+    <main className="bg-white dark:bg-gray-900 min-h-screen flex flex-col">
       <Navbar />
       <ProductHeader />
       
-      <div className="h-[160px]"></div>
+      <div className="h-30 md:h-1 sm:h-0.5 lg:h-3 xl:h-4"></div>
 
       <div className="container mx-auto px-6 py-4 text-xs text-primary">
         Breadcrumb / Pertukangan / ISKU...
@@ -44,7 +44,7 @@ export default function ProductPage() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-50px" }}
-                  variants={fadeUp}
+                  animate={fadeUp}
                 >
                     <h2 className="font-bold text-lg text-gray-800 mb-6">Ulasan Pembeli</h2>
                     <div className="h-40 bg-gray-50 rounded text-center pt-10">Review Component Here</div>
@@ -56,7 +56,7 @@ export default function ProductPage() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-50px" }}
-                  variants={fadeUp}
+                  animate={fadeUp}
                 >
                     <h2 className="font-bold text-lg text-gray-800 mb-4">Lainnya di toko ini</h2>
                     {/* Masukkan komponen Etalase di sini */}
@@ -69,7 +69,7 @@ export default function ProductPage() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.5 }}
-              className="hidden lg:block w-[27%] flex-shrink-0 relative"
+              className="hidden lg:block w-[27%] shrink-0 relative"
             >
                <CartWidget />
             </motion.div>

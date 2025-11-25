@@ -7,11 +7,11 @@ import CategoryWidget from '@/components/Widget/CategoryWidget'; // Import Baru
 
 export default function Home() {
   return (
-    <main className="bg-gray-50 min-h-screen pb-20">
+    <main className="bg-gray-50 dark:bg-black min-h-screen pb-20">
       <Navbar />
       
       {/* Spacer untuk Fixed Navbar */}
-      <div className="h-[145px] md:h-[160px]"></div> 
+      <div className="h-[145px] md:h-40"></div> 
 
       {/* 1. SECTION HEADER (Slider + Ads) */}
       <HeaderSection />
@@ -19,9 +19,9 @@ export default function Home() {
       {/* Spacer dengan Garis Ditengah */}
       <div className="container mx-auto px-4 mb-8">
          <div className="flex items-center gap-4">
-            <div className="h-px bg-gray-200 flex-1"></div>
-            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-            <div className="h-px bg-gray-200 flex-1"></div>
+            <div className="h-px bg-gray-200 dark:bg-green-950 flex-1"></div>
+            <div className="w-2 h-2 bg-gray-300  dark:bg-green-950 rounded-full"></div>
+            <div className="h-px bg-gray-200  dark:bg-green-950 flex-1"></div>
          </div>
       </div>
 

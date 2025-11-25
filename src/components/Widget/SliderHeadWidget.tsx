@@ -15,14 +15,26 @@ export default function SliderHeadWidget() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setLoaded(true);
+    // Simulasi loading network
+    const loadTimer = setTimeout(() => setLoaded(true), 800);
+    
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 5000);
-    return () => clearInterval(timer);
+    
+    return () => {
+      clearInterval(timer);
+      clearTimeout(loadTimer);
+    };
   }, []);
 
-  if (!loaded) return <div className="w-full h-full bg-gray-200 dark:bg-gray-800 animate-pulse rounded-xl min-h-[200px]"></div>;
+  if (!loaded) {
+    return (
+      <div className="relative w-full h-full bg-gray-200 dark:bg-gray-800 rounded-xl overflow-hidden">
+        <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 background-animate" />
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full h-full overflow-hidden rounded-xl group shadow-sm bg-gray-100 dark:bg-gray-800">
@@ -45,7 +57,6 @@ export default function SliderHeadWidget() {
                 transition={{ delay: 0.2 }}
                 className="flex items-center gap-1.5 md:gap-2 mb-1"
             >
-                {/* Ukuran Icon dikurangi untuk mobile */}
                 <Icon icon={slides[current].icon} className="text-yellow-400 text-base md:text-xl" />
                 <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider bg-white/20 px-1.5 py-0.5 rounded backdrop-blur-sm">Featured</span>
             </motion.div>
@@ -54,7 +65,6 @@ export default function SliderHeadWidget() {
               initial={{ y: 20, opacity: 0 }} 
               animate={{ y: 0, opacity: 1 }} 
               transition={{ delay: 0.3 }}
-              // Ukuran Font Judul dikurangi untuk mobile (text-lg -> text-3xl di desktop)
               className="text-lg md:text-3xl lg:text-4xl font-bold mb-0.5 md:mb-2 shadow-sm line-clamp-2 leading-tight"
             >
               {slides[current].title}
@@ -64,7 +74,6 @@ export default function SliderHeadWidget() {
               initial={{ y: 20, opacity: 0 }} 
               animate={{ y: 0, opacity: 1 }} 
               transition={{ delay: 0.4 }}
-              // Ukuran Font Deskripsi dikurangi
               className="text-[10px] md:text-base font-medium text-gray-200 line-clamp-1"
             >
               {slides[current].desc}
@@ -79,14 +88,13 @@ export default function SliderHeadWidget() {
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
-            // Ukuran dots disesuaikan
             className={`h-1 md:h-2 rounded-full transition-all duration-300 ${current === idx ? 'w-4 md:w-8 bg-primary' : 'w-1 md:w-2 bg-white/50 hover:bg-white'}`}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
       </div>
 
-      {/* Arrows (Hidden on mobile intentionally to save space, Show on desktop) */}
+      {/* Arrows (Desktop Only) */}
       <div className="hidden md:block">
           <button 
             onClick={() => setCurrent((current - 1 + slides.length) % slides.length)} 

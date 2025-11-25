@@ -11,7 +11,7 @@ export default function ProductInfo() {
 
   return (
     <motion.div 
-      className="w-full lg:w-[43%] flex-grow flex-1 text-gray-800 dark:text-gray-200"
+      className="w-full lg:w-[43%] grow flex-1 text-gray-800 dark:text-gray-200"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

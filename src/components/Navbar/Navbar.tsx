@@ -91,7 +91,7 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-4">
           {/* Nav Links: dark:text-gray-400, dark:hover:border-gray-700 */}
-          <nav className="flex gap-6 text-sm font-medium text-gray-500 dark:text-gray-400 overflow-x-auto py-3 scrollbar-hide">
+          <nav className="flex gap-6 text-xs font-medium text-gray-500 dark:text-gray-400 overflow-x-auto py-2 scrollbar-hide">
             {['Rekomendasi', 'Gadget', 'Fashion Pria', 'Fashion Wanita', 'Elektronik', 'Rumah Tangga'].map((item) => (
               <a key={item} href="#" className="hover:text-primary whitespace-nowrap transition pb-1 hover:border-b-2 hover:border-gray-200 dark:hover:border-gray-700">
                 {item}

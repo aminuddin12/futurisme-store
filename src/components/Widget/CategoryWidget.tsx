@@ -49,12 +49,11 @@ export default function CategoryWidget() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Reset ke halaman 1 saat ukuran layar berubah agar layout tidak rusak
-  useEffect(() => {
-    setCurrentPage(0);
-  }, [itemsPerPage]);
-
+  // Jangan memanggil setState() secara sinkron di dalam efek.
+  // Sebagai gantinya, kita 'clamp' currentPage saat digunakan sehingga
+  // tidak perlu mereset state setiap kali itemsPerPage berubah.
   const totalPages = Math.ceil(categories.length / itemsPerPage);
+  const currentPageClamped = Math.max(0, Math.min(currentPage, totalPages - 1));
 
   if (!loaded) {
     return (
@@ -65,8 +64,8 @@ export default function CategoryWidget() {
   }
 
   const currentData = categories.slice(
-    currentPage * itemsPerPage,
-    (currentPage + 1) * itemsPerPage
+    currentPageClamped * itemsPerPage,
+    (currentPageClamped + 1) * itemsPerPage
   );
 
   const nextPage = () => setCurrentPage((prev) => (prev + 1) % totalPages);
@@ -78,12 +77,12 @@ export default function CategoryWidget() {
         
         <CategoryHeader 
           totalPages={totalPages} 
-          currentPage={currentPage} 
+          currentPage={currentPageClamped} 
         />
 
         <CategoryList 
           data={currentData} 
-          pageKey={currentPage} 
+          pageKey={currentPageClamped} 
         />
 
         <CategoryNavigation 

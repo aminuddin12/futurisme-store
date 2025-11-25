@@ -1,58 +1,56 @@
 @import "tailwindcss";
 
+/* Konfigurasi Dark Mode untuk next-themes (Class Strategy) 
+  Ini memberitahu Tailwind v4 untuk mengaktifkan varian dark: ketika class .dark ada 
+*/
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Definisi Variabel CSS untuk Tema */
-:root {
-  --background: #f9fafb; /* gray-50 equivalent */
-  --foreground: #1f2937; /* gray-800 equivalent */
-  
-  /* Primary Colors (ShopModern Green) */
-  --primary: #00AA5B;
-  --primary-foreground: #ffffff;
+/* Definisi Tema */
+@theme {
+  /* Warna Custom */
+  --color-primary: #00AA5B;
+  --color-secondary: #EE4D2D;
+  --color-dark: #1F2937;
 
-  /* Secondary Colors (ShopModern Orange/Red) */
-  --secondary: #EE4D2D;
-  --secondary-foreground: #ffffff;
-  
-  /* Border Colors */
-  --border: #e5e7eb; /* gray-200 */
+  /* Animasi Kustom */
+  --animate-fade-in: fade-in 0.2s ease-out forwards;
+  --animate-zoom-in: zoom-in 0.2s ease-out forwards;
+  --animate-slide-down: slide-down 0.3s ease-out forwards;
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes zoom-in {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes slide-down {
+    0% { transform: translateY(-10px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
 }
 
-/* Warna saat Dark Mode Aktif */
-.dark {
-  --background: #111827; /* gray-900 equivalent */
-  --foreground: #f3f4f6; /* gray-100 equivalent */
-  --border: #374151; /* gray-700 */
-}
-
-/* Terapkan variabel ke body */
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Scrollbar Styling (Tetap sama) */
+/* Utilities Kustom Lainnya */
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: var(--background); 
+    background: transparent; 
 }
 ::-webkit-scrollbar-thumb {
     background: #d1d5db; 
     border-radius: 10px;
 }
-.dark ::-webkit-scrollbar-thumb {
-    background: #4b5563; /* gray-600 for dark mode */
+/* Menggunakan varian custom yang baru dibuat */
+@variant dark {
+  ::-webkit-scrollbar-thumb {
+      background: #4b5563;
+  }
 }
 ::-webkit-scrollbar-thumb:hover {
     background: #9ca3af; 
-}
-.dark ::-webkit-scrollbar-thumb:hover {
-    background: #6b7280; /* gray-500 for dark mode */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
