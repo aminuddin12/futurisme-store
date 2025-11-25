@@ -11,46 +11,46 @@ export default function ProductInfo() {
 
   return (
     <motion.div 
-      className="w-full lg:w-[43%] flex-grow flex-1"
-      initial={{ opacity: 0, y: 50 }} // Mulai dari bawah
-      whileInView={{ opacity: 1, y: 0 }} // Naik ke posisi asli
+      className="w-full lg:w-[43%] flex-grow flex-1 text-gray-800 dark:text-gray-200"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }} // Delay sedikit agar muncul setelah galeri
+      transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
     >
       {/* Title */}
-      <h1 className="text-xl font-bold text-gray-800 leading-snug mb-2">ISKU Tool Kit Set 82pcs Kunci Shock Termasuk Kunci Ring Pas</h1>
+      <h1 className="text-xl font-bold leading-snug mb-2">ISKU Tool Kit Set 82pcs Kunci Shock Termasuk Kunci Ring Pas</h1>
       
       {/* Stats */}
-      <div className="flex items-center gap-3 text-sm text-gray-500 mb-4">
-        <span className="font-bold text-gray-800">Terjual 3 rb+</span>
-        <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-        <div className="flex items-center gap-1 px-2 py-0.5 border border-gray-200 rounded">
+      <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-4">
+        <span className="font-bold text-gray-800 dark:text-gray-300">Terjual 3 rb+</span>
+        <span className="w-1 h-1 bg-gray-300 dark:bg-gray-600 rounded-full"></span>
+        <div className="flex items-center gap-1 px-2 py-0.5 border border-gray-200 dark:border-gray-700 rounded">
             <i className="fas fa-star text-yellow-400 text-xs"></i>
-            <span className="text-gray-800 font-bold">4.9</span>
+            <span className="text-gray-800 dark:text-gray-300 font-bold">4.9</span>
         </div>
-        <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+        <span className="w-1 h-1 bg-gray-300 dark:bg-gray-600 rounded-full"></span>
         <div>Diskusi (56)</div>
       </div>
 
       {/* Price */}
       <div className="mb-6">
-        <div className="text-3xl font-extrabold text-gray-800 mb-1">Rp499.000</div>
+        <div className="text-3xl font-extrabold text-gray-800 dark:text-white mb-1">Rp499.000</div>
         <div className="flex items-center gap-2 text-sm">
-            <span className="bg-red-100 text-red-600 font-bold px-1.5 py-0.5 rounded text-xs">58%</span>
+            <span className="bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 font-bold px-1.5 py-0.5 rounded text-xs">58%</span>
             <span className="text-gray-400 line-through">Rp1.200.000</span>
         </div>
       </div>
 
       {/* Variants */}
-      <div className="mb-6 border-b border-gray-100 pb-6">
-        <h3 className="font-bold text-gray-700 text-sm mb-3">Pilih Varian: <span className="font-normal text-gray-500">{selectedVariant}</span></h3>
+      <div className="mb-6 border-b border-gray-100 dark:border-gray-800 pb-6">
+        <h3 className="font-bold text-sm mb-3">Pilih Varian: <span className="font-normal text-gray-500 dark:text-gray-400">{selectedVariant}</span></h3>
         <div className="flex flex-wrap gap-3">
             {['82Pcs Hijau', '53Pcs Hitam'].map((v) => (
                 <button 
                     key={v}
                     onClick={() => setSelectedVariant(v)}
                     className={`relative border px-3 py-2 rounded-lg text-sm transition flex items-center gap-2 ${
-                        selectedVariant === v ? 'border-primary bg-green-50 text-primary' : 'border-gray-200 text-gray-600'
+                        selectedVariant === v ? 'border-primary bg-green-50 dark:bg-green-900/20 text-primary' : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400'
                     }`}
                 >
                     <span>{v}</span>
@@ -61,16 +61,15 @@ export default function ProductInfo() {
       </div>
 
       {/* Tabs & Desc */}
-      <div className="border-b border-gray-100 mb-6">
+      <div className="border-b border-gray-100 dark:border-gray-800 mb-6">
         <div className="flex gap-8 text-sm font-bold text-primary border-b-2 border-primary w-fit pb-3 px-1">
             Detail
         </div>
       </div>
 
-      <div className="relative border-b border-gray-100 pb-4 mb-6">
-        {/* Menggunakan motion.div untuk animasi expand/collapse deskripsi */}
+      <div className="relative border-b border-gray-100 dark:border-gray-800 pb-4 mb-6">
         <motion.div 
-            className="text-sm text-gray-700 leading-relaxed mb-2 overflow-hidden"
+            className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-2 overflow-hidden"
             initial={false}
             animate={{ height: isDescExpanded ? 'auto' : 150 }}
             transition={{ duration: 0.4 }}
@@ -88,14 +87,14 @@ export default function ProductInfo() {
         {!isDescExpanded && (
             <motion.div 
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white via-white/90 to-transparent pointer-events-none"
+                className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white dark:from-gray-900 via-white/90 dark:via-gray-900/90 to-transparent pointer-events-none"
             ></motion.div>
         )}
         
         <div className="absolute bottom-0 left-0 w-full flex justify-center z-10 transform translate-y-1/2">
             <button 
                 onClick={() => setIsDescExpanded(!isDescExpanded)}
-                className="bg-white border border-gray-200 text-primary px-8 py-2 rounded-full font-bold text-sm hover:bg-green-50 shadow-lg flex items-center gap-2 transition-all"
+                className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-primary px-8 py-2 rounded-full font-bold text-sm hover:bg-green-50 dark:hover:bg-green-900/20 shadow-lg flex items-center gap-2 transition-all"
             >
                 {isDescExpanded ? 'Lihat Lebih Sedikit' : 'Lihat Selengkapnya'}
                 <motion.i 
@@ -109,7 +108,7 @@ export default function ProductInfo() {
       <div className="h-6"></div>
 
       {/* Store Info Placeholder */}
-      <div className="py-4 border-t border-b border-gray-100">
+      <div className="py-4 border-t border-b border-gray-100 dark:border-gray-800">
          <div className="flex items-center gap-4">
             <img src="https://images.tokopedia.net/img/official_store_badge_2.png" className="w-12 h-12" alt="Store" />
             <div>
