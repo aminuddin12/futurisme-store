@@ -1,8 +1,6 @@
-'use client';
-
 import './globals.css';
 import { Inter } from 'next/font/google';
-// Hapus import AOS dan useEffect
+import { Providers } from '@/components/Theme/Providers'; // Import Provider
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -11,10 +9,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // AOS init dihapus karena kita ganti ke Framer Motion
-
   return (
-    <html lang="id" className="scroll-smooth">
+    <html lang="id" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <link 
           rel="stylesheet" 
@@ -22,8 +18,10 @@ export default function RootLayout({
         />
         <title>ShopModern - E-Commerce</title>
       </head>
-      <body className={`${inter.className} bg-gray-50 text-gray-800 overflow-x-hidden`}>
-        {children}
+      <body className={`${inter.className} bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden transition-colors duration-300`}>
+        <Providers>
+            {children}
+        </Providers>
       </body>
     </html>
   );

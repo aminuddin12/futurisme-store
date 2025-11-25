@@ -2,7 +2,8 @@
 
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
-import HeaderSection from '@/components/Home/HeaderSection'; // Import komponen baru
+import HeaderSection from '@/components/Home/HeaderSection';
+import CategoryWidget from '@/components/Widget/CategoryWidget'; // Import Baru
 
 export default function Home() {
   return (
@@ -12,12 +13,24 @@ export default function Home() {
       {/* Spacer untuk Fixed Navbar */}
       <div className="h-[145px] md:h-[160px]"></div> 
 
-      {/* SECTION HEADER BARU */}
+      {/* 1. SECTION HEADER (Slider + Ads) */}
       <HeaderSection />
 
-      {/* Konten Lainnya (Kategori, Produk, dll bisa ditambahkan di sini nanti) */}
+      {/* Spacer dengan Garis Ditengah */}
+      <div className="container mx-auto px-4 mb-8">
+         <div className="flex items-center gap-4">
+            <div className="h-px bg-gray-200 flex-1"></div>
+            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+            <div className="h-px bg-gray-200 flex-1"></div>
+         </div>
+      </div>
+
+      {/* 2. SECTION KATEGORI (Widget Baru) */}
+      <CategoryWidget />
+
+      {/* Konten Lainnya */}
       <div className="container mx-auto px-4 py-8 text-center text-gray-400">
-        <p>Konten Kategori & Produk akan dirender di sini...</p>
+        <p>Konten Produk lainnya akan dirender di sini...</p>
       </div>
 
       <Footer />

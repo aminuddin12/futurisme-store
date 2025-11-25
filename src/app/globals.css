@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+/* Konfigurasi Dark Mode manual untuk v4 jika diperlukan, 
+   tapi v4 biasanya otomatis mendeteksi media query. 
+   Untuk class-based (next-themes), tambahkan ini: */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Definisi warna custom jika perlu */
+  --color-primary: #00AA5B;
+  --color-secondary: #EE4D2D;
+  --color-dark: #1F2937;
+}
+
+/* Utilities kustom Anda */
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
