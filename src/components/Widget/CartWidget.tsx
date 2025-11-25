@@ -11,7 +11,7 @@ export default function CartWidget() {
   };
 
   return (
-    <div className="hidden lg:block w-[27%] flex-shrink-0 relative">
+    <div className="hidden lg:block w-[27%] shrink-0 relative">
       <div className="sticky top-[130px] border border-gray-200 rounded-xl p-4 shadow-sm bg-white z-30">
         <h3 className="font-bold text-gray-800 text-sm mb-4">Atur jumlah</h3>
         <div className="flex items-center gap-3 mb-4">
