@@ -3,11 +3,13 @@
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import HeaderSection from '@/components/Home/HeaderSection';
-import CategoryWidget from '@/components/Widget/CategoryWidget'; // Import Baru
+import CategoryWidget from '@/components/Widget/CategoryWidget';
+// Import komponen chat yang baru dibuat
+import ChatBaloon from '@/components/Chat/ChatBaloon'; 
 
 export default function Home() {
   return (
-    <main className="bg-gray-50 dark:bg-black min-h-screen pb-20">
+    <main className="bg-gray-50 dark:bg-black min-h-screen pb-20 relative">
       <Navbar />
       
       {/* Spacer untuk Fixed Navbar */}
@@ -34,6 +36,9 @@ export default function Home() {
       </div>
 
       <Footer />
+
+      {/* Komponen Chat Mengambang */}
+      <ChatBaloon />
     </main>
   );
 }
