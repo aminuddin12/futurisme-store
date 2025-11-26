@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion'; // Import Variants
 import { Icon } from '@iconify/react';
 
 interface ChatSettingProps {
@@ -35,7 +35,8 @@ export default function ChatSetting({ onClose }: ChatSettingProps) {
   };
 
   // Animasi Panel Turun dari Atas
-  const containerVariants = {
+  // Perbaikan: Menambahkan tipe Variants secara eksplisit
+  const containerVariants: Variants = {
     hidden: { y: "-100%", opacity: 0 },
     visible: { 
       y: "0%", 
@@ -46,7 +47,7 @@ export default function ChatSetting({ onClose }: ChatSettingProps) {
   };
 
   // Animasi List Menu (Stagger)
-  const listVariants = {
+  const listVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -54,7 +55,7 @@ export default function ChatSetting({ onClose }: ChatSettingProps) {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0 }
   };

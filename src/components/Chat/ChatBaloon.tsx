@@ -8,153 +8,59 @@ import ChatHeader from './ChatHeader';
 import ChatBody from './ChatBody';
 import ChatFooter from './ChatFooter';
 import ChatSidebar from './ChatSidebar';
-import ChatSetting from './ChatSetting'; // Import komponen setting baru
+import ChatSetting from './ChatSetting';
+import ChatProfileUser from './Profile/ChatProfileUser';
+import ChatSidebarEmpty from './ChatSidebarEmpty';
+import ChatMainPanelEmpty from './ChatMainPanelEmpty';
 
-// --- Data Dummy Diperluas ---
-const dummyContacts: Contact[] = [
-  {
-    id: 1,
-    name: 'Admin Support',
-    avatar: 'https://i.pravatar.cc/150?u=1',
-    lastMessage: 'Halo, ada yang bisa kami bantu terkait pesanan kakak? Kami siap membantu 24 jam.',
-    isRead: false,
-    unreadCount: 2,
-    status: 'online',
-    messages: [
-        { id: 1, sender: 'other', text: 'Halo kak, selamat siang!', time: '10:00' },
-        { id: 2, sender: 'me', text: 'Siang min, mau tanya stok ISKU ready?', time: '10:05' },
-        { id: 3, sender: 'other', text: 'Stok ISKU Tool Kit Set 82pcs masih tersedia banyak kak. Silahkan diorder sebelum kehabisan ya karena sedang flash sale!', time: '10:10' },
-        { id: 4, sender: 'other', text: 'Halo, ada yang bisa kami bantu terkait pesanan kakak? Kami siap membantu 24 jam.', time: '10:12' },
-    ]
-  },
-  {
-    id: 2,
-    name: 'Kurir Express',
-    avatar: 'https://i.pravatar.cc/150?u=3',
-    lastMessage: 'Paket sudah dikirim ya.',
-    isRead: true,
-    unreadCount: 0,
-    status: 'offline',
-    messages: [
-        { id: 1, sender: 'me', text: 'Paket saya dikirim kapan ya?', time: '08:00' },
-        { id: 2, sender: 'other', text: 'Paket sudah dikirim ya. Resi akan terupdate otomatis malam ini.', time: '09:30' },
-    ]
-  },
-  {
-    id: 3,
-    name: 'Toko Sebelah',
-    avatar: 'https://i.pravatar.cc/150?u=8',
-    lastMessage: 'Silahkan mampir kak, lagi ada promo besar-besaran lho!',
-    isRead: false,
-    unreadCount: 5,
-    status: 'online',
-    messages: [
-         { id: 1, sender: 'other', text: 'Silahkan mampir kak, lagi ada promo besar-besaran lho!', time: '12:00' },
-    ]
-  },
-  {
-    id: 4,
-    name: 'Budi Santoso (Teknisi)',
-    avatar: 'https://i.pravatar.cc/150?u=12',
-    lastMessage: 'Untuk pemasangan bor impact bisa dilihat di manual halaman 12 ya mas.',
-    isRead: true,
-    unreadCount: 0,
-    status: 'online',
-    messages: [
-        { id: 1, sender: 'me', text: 'Mas, ini cara pasang mata bornya gimana ya? Agak keras putarannya.', time: 'Kemarin' },
-        { id: 2, sender: 'other', text: 'Coba diputar berlawanan arah jarum jam dulu chuck-nya mas sampai terbuka maksimal.', time: 'Kemarin' },
-        { id: 3, sender: 'me', text: 'Oke sudah bisa, makasih.', time: 'Kemarin' },
-        { id: 4, sender: 'other', text: 'Untuk pemasangan bor impact bisa dilihat di manual halaman 12 ya mas.', time: '08:15' },
-    ]
-  },
-  {
-    id: 5,
-    name: 'Siti - Customer Service',
-    avatar: 'https://i.pravatar.cc/150?u=25',
-    lastMessage: 'Mohon ditunggu sebentar ya kak, saya cek dulu status pembayarannya.',
-    isRead: false,
-    unreadCount: 1,
-    status: 'online',
-    messages: [
-        { id: 1, sender: 'me', text: 'Halo kak, saya sudah transfer tapi status masih pending.', time: '13:00' },
-        { id: 2, sender: 'other', text: 'Halo kak, boleh kirimkan bukti transfernya?', time: '13:02' },
-        { id: 3, sender: 'me', text: '[Mengirim Bukti Transfer.jpg]', time: '13:05' },
-        { id: 4, sender: 'other', text: 'Mohon ditunggu sebentar ya kak, saya cek dulu status pembayarannya.', time: '13:06' },
-    ]
-  },
-  {
-    id: 6,
-    name: 'Komunitas Gadget',
-    avatar: 'https://i.pravatar.cc/150?u=33',
-    lastMessage: 'Rekomendasi HP 3 jutaan terbaik bulan ini apa ya gan?',
-    isRead: false,
-    unreadCount: 12,
-    status: 'offline',
-    messages: [
-        { id: 1, sender: 'other', text: 'Wah setuju sih, kameranya juara.', time: '10:00' },
-        { id: 2, sender: 'other', text: 'Tapi baterainya agak boros.', time: '10:02' },
-        { id: 3, sender: 'other', text: 'Rekomendasi HP 3 jutaan terbaik bulan ini apa ya gan?', time: '14:20' },
-    ]
-  },
-  {
-    id: 7,
-    name: 'Dina (Sales)',
-    avatar: 'https://i.pravatar.cc/150?u=41',
-    lastMessage: 'Stok warna hitam tinggal 2 unit kak.',
-    isRead: true,
-    unreadCount: 0,
-    status: 'online',
-    messages: [
-        { id: 1, sender: 'other', text: 'Selamat pagi kak, tertarik dengan promo laptop gamingnya?', time: '09:00' },
-        { id: 2, sender: 'me', text: 'Yang seri ROG ada warna apa aja?', time: '09:15' },
-        { id: 3, sender: 'other', text: 'Ada hitam dan silver kak.', time: '09:16' },
-        { id: 4, sender: 'other', text: 'Stok warna hitam tinggal 2 unit kak.', time: '09:20' },
-    ]
-  },
-  {
-    id: 8,
-    name: 'Service Center Resmi',
-    avatar: 'https://i.pravatar.cc/150?u=55',
-    lastMessage: 'Unit sudah selesai diperbaiki dan bisa diambil di gerai.',
-    isRead: true,
-    unreadCount: 0,
-    status: 'offline',
-    messages: [
-        { id: 1, sender: 'other', text: 'Selamat siang, menginformasikan bahwa unit servis no #INV-2938 sudah kami terima.', time: 'Senin' },
-        { id: 2, sender: 'other', text: 'Unit sedang dalam pengerjaan teknisi.', time: 'Selasa' },
-        { id: 3, sender: 'other', text: 'Unit sudah selesai diperbaiki dan bisa diambil di gerai.', time: '11:30' },
-    ]
-  },
-  {
-    id: 9,
-    name: 'Spam Promo',
-    avatar: 'https://i.pravatar.cc/150?u=99',
-    lastMessage: 'Selamat! Anda terpilih mendapatkan voucher belanja 1 juta rupiah. Klik link berikut...',
-    isRead: false,
-    unreadCount: 1,
-    status: 'offline',
-    messages: [
-        { id: 1, sender: 'other', text: 'Selamat! Anda terpilih mendapatkan voucher belanja 1 juta rupiah. Klik link berikut untuk klaim: http://fake-link.com', time: '02:00' },
-    ]
-  }
-];
+// Import data dummy dari JSON
+import chatDataDummy from './Dummy/chatData.json';
 
 export default function ChatBaloon() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false); // State untuk Settings
-  const [activeContactId, setActiveContactId] = useState<number>(dummyContacts[0].id);
-  
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false); 
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [activeContactId, setActiveContactId] = useState<number | null>(null);
   const [isMobileChatActive, setIsMobileChatActive] = useState(false);
-  
-  const activeContact = dummyContacts.find(c => c.id === activeContactId) || dummyContacts[0];
+
+  // State untuk menyimpan data kontak
+  const [contacts, setContacts] = useState<Contact[] | null>(null);
+
+  // --- FUNGSI LOAD DATA DUMMY ---
+  useEffect(() => {
+    // Simulasi fetching data
+    const loadContacts = () => {
+      // =====================================================================
+      // KOMENTARI BARIS 'setContacts' DI BAWAH INI UNTUK MELIHAT TAMPILAN EMPTY / KOSONG
+      // =====================================================================
+      
+      setContacts(chatDataDummy as unknown as Contact[]);
+      
+      // Jika data berhasil dimuat, set kontak pertama sebagai aktif (opsional)
+      // if (chatDataDummy && chatDataDummy.length > 0) {
+      //   setActiveContactId(chatDataDummy[0].id);
+      // }
+    };
+
+    loadContacts();
+  }, []);
+
+  // Safe access
+  const currentContacts = contacts || [];
+  const activeContact = currentContacts.find(c => c.id === activeContactId) || null;
 
   const handleContactSelect = (id: number) => {
     setActiveContactId(id);
-    setIsMobileChatActive(true); 
+    setIsMobileChatActive(true);
+    setIsProfileOpen(false); 
   };
 
   const handleBackToSidebar = () => {
-    setIsMobileChatActive(false);
+    if (isProfileOpen) {
+      setIsProfileOpen(false);
+    } else {
+      setIsMobileChatActive(false);
+    }
   };
 
   const handleSendMessage = (text: string) => {
@@ -183,12 +89,12 @@ export default function ChatBaloon() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 z-[100] bg-black/20 backdrop-blur-sm"
+            className="fixed inset-0 z-100 bg-black/20 backdrop-blur-sm"
           />
         )}
       </AnimatePresence>
 
-      {/* --- Floating Button (Muncul saat Chat tertutup) --- */}
+      {/* --- Floating Button --- */}
       <AnimatePresence>
         {!isOpen && (
           <motion.button
@@ -198,7 +104,7 @@ export default function ChatBaloon() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-[110] flex items-center gap-2 bg-primary text-white px-5 py-3 rounded-full shadow-lg shadow-primary/30 hover:bg-green-600 transition-colors"
+            className="fixed bottom-6 right-6 z-110 flex items-center gap-2 bg-primary text-white px-5 py-3 rounded-full shadow-lg shadow-primary/30 hover:bg-green-600 transition-colors"
           >
             <Icon icon="fluent:chat-bubbles-question-24-filled" className="text-2xl" />
             <span className="font-bold">Chat</span>
@@ -214,17 +120,17 @@ export default function ChatBaloon() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-6 right-6 z-[110] w-[90vw] md:w-[940px] h-[80vh] md:h-[625px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col overflow-hidden"
+            className="fixed bottom-6 right-6 z-110 w-[90vw] md:w-[940px] h-[80vh] md:h-[625px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col overflow-hidden"
           >
             {/* --- Header Utama --- */}
-            <div className="h-[56px] bg-primary text-white flex items-center justify-between px-4 shrink-0 z-20 shadow-sm">
+            <div className="h-14 bg-primary text-white flex items-center justify-between px-4 shrink-0 z-20 shadow-sm">
                 <div className="flex items-center gap-2 font-bold text-lg">
                     <Icon icon="fluent:chat-bubbles-24-filled" className="text-xl" />
                     <span>Text Messaging</span>
                 </div>
                 
                 <div className="flex items-center gap-3">
-                    {/* Tombol Setting (Toggle) */}
+                    {/* Tombol Setting */}
                     <button 
                         onClick={() => setIsSettingsOpen(!isSettingsOpen)}
                         className={`bg-white text-primary px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-sm hover:bg-gray-50 transition-colors ${isSettingsOpen ? 'ring-2 ring-offset-1 ring-white/50' : ''}`}
@@ -243,10 +149,10 @@ export default function ChatBaloon() {
                 </div>
             </div>
 
-            {/* --- Content Container (Sidebar + Main Panel + Setting Overlay) --- */}
+            {/* --- Content Container --- */}
             <div className="flex-1 flex flex-col md:flex-row overflow-hidden relative">
                 
-                {/* === Settings Overlay (Muncul menutupi konten) === */}
+                {/* === Settings Overlay === */}
                 <AnimatePresence>
                     {isSettingsOpen && (
                         <ChatSetting onClose={() => setIsSettingsOpen(false)} />
@@ -254,26 +160,54 @@ export default function ChatBaloon() {
                 </AnimatePresence>
 
                 {/* === SIDEBAR (Kiri) === */}
-                <ChatSidebar 
-                    contacts={dummyContacts}
-                    activeContactId={activeContactId}
-                    onSelectContact={handleContactSelect}
-                    isMobileChatActive={isMobileChatActive}
-                />
+                {currentContacts.length > 0 ? (
+                    <ChatSidebar 
+                        contacts={currentContacts}
+                        activeContactId={activeContactId || 0}
+                        onSelectContact={handleContactSelect}
+                        isMobileChatActive={isMobileChatActive}
+                    />
+                ) : (
+                    <ChatSidebarEmpty />
+                )}
 
                 {/* === MAIN PANEL (Kanan) === */}
-                <div className={`w-full md:w-[65%] flex-col bg-white dark:bg-gray-950 relative h-full ${isMobileChatActive ? 'flex' : 'hidden md:flex'}`}>
-                  
-                  <ChatHeader 
-                    contact={activeContact} 
-                    onBack={handleBackToSidebar}
-                  />
+                {currentContacts.length > 0 && activeContact ? (
+                    <div className={`w-full md:w-[65%] flex-col bg-white dark:bg-gray-950 relative h-full ${isMobileChatActive ? 'flex' : 'hidden md:flex'}`}>
+                      <AnimatePresence mode='wait'>
+                        {isProfileOpen ? (
+                          <ChatProfileUser 
+                            key="profile"
+                            contact={activeContact}
+                            onBack={() => setIsProfileOpen(false)}
+                          />
+                        ) : (
+                          <motion.div 
+                            key="chat"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="flex flex-col h-full w-full relative"
+                          >
+                            <ChatHeader 
+                              contact={activeContact} 
+                              onBack={handleBackToSidebar}
+                              onProfileClick={() => setIsProfileOpen(true)}
+                            />
 
-                  <ChatBody messages={activeContact.messages} />
+                            <ChatBody messages={activeContact.messages} />
 
-                  <ChatFooter onSendMessage={handleSendMessage} />
-
-                </div>
+                            <ChatFooter onSendMessage={handleSendMessage} />
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                ) : (
+                    // Jika tidak ada kontak atau tidak ada yang aktif, tampilkan Empty State di kanan
+                    <div className={`w-full md:w-[65%] relative h-full hidden md:flex`}>
+                        <ChatMainPanelEmpty />
+                    </div>
+                )}
             </div>
           </motion.div>
         )}
