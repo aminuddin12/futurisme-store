@@ -1,6 +1,7 @@
+// @ts-expect-error: Allow side-effect import of global CSS without type declarations
 import './globals.css';
 import { Inter } from 'next/font/google';
-import { Providers } from '@/components/Theme/Providers'; // Import Provider
+import { Providers } from '@/components/Theme/Providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
