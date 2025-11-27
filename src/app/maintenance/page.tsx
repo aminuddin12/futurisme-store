@@ -3,8 +3,28 @@
 import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import { motion } from 'framer-motion';
+import webConfig from '@/data/web-config.json'; // Import data config
 
 export default function Maintenance() {
+  // 1. Ekstrak Data dari Config
+  const { message, errorCode, maintenanceDetail, data } = webConfig;
+  
+  // 2. Cari data contact support dari array data
+  const supportContact = data.find(item => item.key === 'support_contact')?.value as { whatsapp: string, email: string } | undefined;
+
+  // 3. Helper untuk format tanggal
+  const formatDate = (dateString: string) => {
+    if (!dateString) return '-';
+    return new Date(dateString).toLocaleDateString('id-ID', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZoneName: 'short'
+    });
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-950 text-center px-6 overflow-hidden relative">
       
@@ -60,41 +80,68 @@ export default function Maintenance() {
         </div>
       </motion.div>
 
-      {/* Text Content */}
+      {/* Text Content Dinamis */}
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
-        className="relative z-10 max-w-lg"
+        className="relative z-10 max-w-lg w-full"
       >
         <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-3 tracking-tight">
-          Sedang Dalam Perbaikan
+          System Maintenance
         </h1>
-        <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg mb-8 leading-relaxed">
-          Kami sedang meningkatkan performa roket kami untuk pengalaman belanja yang lebih cepat di masa depan.
+        
+        {/* Pesan dari Config */}
+        <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg mb-6 leading-relaxed">
+          {message}
         </p>
+
+        {/* Detail Box */}
+        <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 shadow-sm mb-8 text-left space-y-3">
+            <div className="flex items-start gap-3">
+                <Icon icon="solar:info-circle-bold-duotone" className="text-blue-500 text-xl mt-0.5 shrink-0" />
+                <div>
+                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-0.5">Alasan</span>
+                    <span className="text-sm font-medium text-gray-800 dark:text-gray-200">{maintenanceDetail.reason}</span>
+                </div>
+            </div>
+            
+            <div className="h-px bg-gray-100 dark:bg-gray-800 w-full my-2"></div>
+
+            <div className="flex items-start gap-3">
+                <Icon icon="solar:clock-circle-bold-duotone" className="text-orange-500 text-xl mt-0.5 shrink-0" />
+                <div>
+                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-0.5">Estimasi Selesai</span>
+                    <span className="text-sm font-medium text-gray-800 dark:text-gray-200">
+                        {formatDate(maintenanceDetail.estimatedEndTime)}
+                    </span>
+                </div>
+            </div>
+        </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {/* Button Refresh */}
             <button 
                 onClick={() => window.location.reload()}
-                className="group flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700 transition-all"
+                className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700 transition-all"
             >
                 <Icon icon="solar:refresh-bold-duotone" className="text-xl group-hover:rotate-180 transition-transform duration-500" />
-                <span>Coba Lagi</span>
+                <span>Cek Status</span>
             </button>
 
-            {/* Button Contact Support */}
-            <Link href="https://wa.me/6281234567890" target="_blank">
-                <button className="group flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-primary/30 hover:bg-green-600 hover:shadow-xl transition-all">
-                    <Icon icon="solar:chat-round-dots-bold-duotone" className="text-xl" />
-                    <span>Hubungi Kami</span>
-                </button>
-            </Link>
+            {/* Button Contact Support (Dynamic Link) */}
+            {supportContact?.whatsapp && (
+                <Link href={supportContact.whatsapp} target="_blank" className="w-full sm:w-auto">
+                    <button className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-primary/30 hover:bg-green-600 hover:shadow-xl transition-all">
+                        <Icon icon="solar:chat-round-dots-bold-duotone" className="text-xl" />
+                        <span>Hubungi Support</span>
+                    </button>
+                </Link>
+            )}
         </div>
 
-        <div className="mt-12 text-xs text-gray-400 dark:text-gray-600 font-medium">
-            Perkiraan selesai: <span className="text-gray-600 dark:text-gray-400">Segera</span>
+        <div className="mt-12 text-xs font-mono text-gray-400 dark:text-gray-600">
+            Error Code: <span className="text-red-400 font-bold">{errorCode}</span>
         </div>
       </motion.div>
 

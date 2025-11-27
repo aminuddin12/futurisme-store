@@ -14,6 +14,7 @@ export default function OfflinePage() {
 
     // Cek status awal saat mount
     if (typeof window !== 'undefined') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsOffline(!navigator.onLine);
     }
 

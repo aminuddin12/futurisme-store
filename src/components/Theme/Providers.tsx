@@ -1,12 +1,14 @@
 'use client';
 
 import { ThemeProvider } from 'next-themes';
+import { SearchProvider } from '@/context/SearchContext'; // Import SearchProvider
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  // PENTING: attribute="class" wajib ada agar Tailwind dark: modifier bekerja
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      {children}
+      <SearchProvider>
+        {children}
+      </SearchProvider>
     </ThemeProvider>
   );
 }
