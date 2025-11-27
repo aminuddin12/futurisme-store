@@ -4,7 +4,8 @@ import { Icon } from '@iconify/react';
 
 export default function ChatSidebarEmpty() {
   return (
-    <div className="w-full md:w-[35%] border-r border-gray-100 dark:border-gray-800 flex flex-col bg-white dark:bg-gray-900 h-full">
+    // UPDATE: Menghapus md:w-[35%] agar lebar diatur oleh parent container
+    <div className="w-full border-r border-gray-100 dark:border-gray-800 flex flex-col bg-white dark:bg-gray-900 h-full">
       
       {/* Sidebar Header */}
       <div className="px-5 h-[60px] shrink-0 flex items-center justify-between border-b border-gray-50 dark:border-gray-800">

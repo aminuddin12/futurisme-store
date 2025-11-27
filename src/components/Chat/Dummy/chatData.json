@@ -3,15 +3,32 @@
     "id": 1,
     "name": "Admin Support",
     "avatar": "https://i.pravatar.cc/150?u=1",
-    "lastMessage": "Halo, ada yang bisa kami bantu terkait pesanan kakak? Kami siap membantu 24 jam.",
+    "lastMessage": "Silahkan dicek katalog terbaru kami kak 😊",
     "isRead": false,
-    "unreadCount": 2,
+    "unreadCount": 3,
     "status": "online",
     "messages": [
-      { "id": 1, "sender": "other", "text": "Halo kak, selamat siang!", "time": "10:00" },
-      { "id": 2, "sender": "me", "text": "Siang min, mau tanya stok ISKU ready?", "time": "10:05" },
-      { "id": 3, "sender": "other", "text": "Stok ISKU Tool Kit Set 82pcs masih tersedia banyak kak. Silahkan diorder sebelum kehabisan ya karena sedang flash sale!", "time": "10:10" },
-      { "id": 4, "sender": "other", "text": "Halo, ada yang bisa kami bantu terkait pesanan kakak? Kami siap membantu 24 jam.", "time": "10:12" }
+      { "id": 1, "sender": "other", "text": "Halo kak, selamat siang! 👋", "time": "10:00", "type": "text" },
+      { "id": 2, "sender": "me", "text": "Siang min, mau tanya stok ISKU ready? 🤔", "time": "10:05", "type": "text" },
+      { "id": 3, "sender": "other", "text": "Stok ISKU Tool Kit Set 82pcs masih tersedia banyak kak. Silahkan diorder sebelum kehabisan ya karena sedang flash sale! ⚡", "time": "10:10", "type": "text" },
+      { 
+        "id": 4, 
+        "sender": "other", 
+        "text": "Ini foto detail produknya kak", 
+        "time": "10:11", 
+        "type": "image",
+        "fileUrl": "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+      },
+      { 
+        "id": 5, 
+        "sender": "other", 
+        "text": "Katalog Lengkap.pdf", 
+        "time": "10:12", 
+        "type": "file",
+        "fileName": "Katalog_ISKU_2025.pdf",
+        "fileSize": "2.4 MB"
+      },
+      { "id": 6, "sender": "other", "text": "Silahkan dicek katalog terbaru kami kak 😊", "time": "10:13", "type": "text" }
     ]
   },
   {
@@ -23,8 +40,8 @@
     "unreadCount": 0,
     "status": "offline",
     "messages": [
-      { "id": 1, "sender": "me", "text": "Paket saya dikirim kapan ya?", "time": "08:00" },
-      { "id": 2, "sender": "other", "text": "Paket sudah dikirim ya. Resi akan terupdate otomatis malam ini.", "time": "09:30" }
+      { "id": 1, "sender": "me", "text": "Paket saya dikirim kapan ya?", "time": "08:00", "type": "text" },
+      { "id": 2, "sender": "other", "text": "Paket sudah dikirim ya. Resi akan terupdate otomatis malam ini.", "time": "09:30", "type": "text" }
     ]
   },
   {
@@ -36,7 +53,7 @@
     "unreadCount": 5,
     "status": "online",
     "messages": [
-      { "id": 1, "sender": "other", "text": "Silahkan mampir kak, lagi ada promo besar-besaran lho!", "time": "12:00" }
+      { "id": 1, "sender": "other", "text": "Silahkan mampir kak, lagi ada promo besar-besaran lho!", "time": "12:00", "type": "text" }
     ]
   },
   {
@@ -48,10 +65,10 @@
     "unreadCount": 0,
     "status": "online",
     "messages": [
-      { "id": 1, "sender": "me", "text": "Mas, ini cara pasang mata bornya gimana ya? Agak keras putarannya.", "time": "Kemarin" },
-      { "id": 2, "sender": "other", "text": "Coba diputar berlawanan arah jarum jam dulu chuck-nya mas sampai terbuka maksimal.", "time": "Kemarin" },
-      { "id": 3, "sender": "me", "text": "Oke sudah bisa, makasih.", "time": "Kemarin" },
-      { "id": 4, "sender": "other", "text": "Untuk pemasangan bor impact bisa dilihat di manual halaman 12 ya mas.", "time": "08:15" }
+      { "id": 1, "sender": "me", "text": "Mas, ini cara pasang mata bornya gimana ya? Agak keras putarannya.", "time": "Kemarin", "type": "text" },
+      { "id": 2, "sender": "other", "text": "Coba diputar berlawanan arah jarum jam dulu chuck-nya mas sampai terbuka maksimal.", "time": "Kemarin", "type": "text" },
+      { "id": 3, "sender": "me", "text": "Oke sudah bisa, makasih.", "time": "Kemarin", "type": "text" },
+      { "id": 4, "sender": "other", "text": "Untuk pemasangan bor impact bisa dilihat di manual halaman 12 ya mas.", "time": "08:15", "type": "text" }
     ]
   },
   {
@@ -63,10 +80,17 @@
     "unreadCount": 1,
     "status": "online",
     "messages": [
-      { "id": 1, "sender": "me", "text": "Halo kak, saya sudah transfer tapi status masih pending.", "time": "13:00" },
-      { "id": 2, "sender": "other", "text": "Halo kak, boleh kirimkan bukti transfernya?", "time": "13:02" },
-      { "id": 3, "sender": "me", "text": "[Mengirim Bukti Transfer.jpg]", "time": "13:05" },
-      { "id": 4, "sender": "other", "text": "Mohon ditunggu sebentar ya kak, saya cek dulu status pembayarannya.", "time": "13:06" }
+      { "id": 1, "sender": "me", "text": "Halo kak, saya sudah transfer tapi status masih pending.", "time": "13:00", "type": "text" },
+      { "id": 2, "sender": "other", "text": "Halo kak, boleh kirimkan bukti transfernya?", "time": "13:02", "type": "text" },
+      { 
+        "id": 3, 
+        "sender": "me", 
+        "text": "Bukti Transfer", 
+        "time": "13:05", 
+        "type": "image",
+        "fileUrl": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+      },
+      { "id": 4, "sender": "other", "text": "Mohon ditunggu sebentar ya kak, saya cek dulu status pembayarannya.", "time": "13:06", "type": "text" }
     ]
   },
   {
@@ -78,9 +102,9 @@
     "unreadCount": 12,
     "status": "offline",
     "messages": [
-      { "id": 1, "sender": "other", "text": "Wah setuju sih, kameranya juara.", "time": "10:00" },
-      { "id": 2, "sender": "other", "text": "Tapi baterainya agak boros.", "time": "10:02" },
-      { "id": 3, "sender": "other", "text": "Rekomendasi HP 3 jutaan terbaik bulan ini apa ya gan?", "time": "14:20" }
+      { "id": 1, "sender": "other", "text": "Wah setuju sih, kameranya juara.", "time": "10:00", "type": "text" },
+      { "id": 2, "sender": "other", "text": "Tapi baterainya agak boros.", "time": "10:02", "type": "text" },
+      { "id": 3, "sender": "other", "text": "Rekomendasi HP 3 jutaan terbaik bulan ini apa ya gan?", "time": "14:20", "type": "text" }
     ]
   },
   {
@@ -92,10 +116,10 @@
     "unreadCount": 0,
     "status": "online",
     "messages": [
-      { "id": 1, "sender": "other", "text": "Selamat pagi kak, tertarik dengan promo laptop gamingnya?", "time": "09:00" },
-      { "id": 2, "sender": "me", "text": "Yang seri ROG ada warna apa aja?", "time": "09:15" },
-      { "id": 3, "sender": "other", "text": "Ada hitam dan silver kak.", "time": "09:16" },
-      { "id": 4, "sender": "other", "text": "Stok warna hitam tinggal 2 unit kak.", "time": "09:20" }
+      { "id": 1, "sender": "other", "text": "Selamat pagi kak, tertarik dengan promo laptop gamingnya?", "time": "09:00", "type": "text" },
+      { "id": 2, "sender": "me", "text": "Yang seri ROG ada warna apa aja?", "time": "09:15", "type": "text" },
+      { "id": 3, "sender": "other", "text": "Ada hitam dan silver kak.", "time": "09:16", "type": "text" },
+      { "id": 4, "sender": "other", "text": "Stok warna hitam tinggal 2 unit kak.", "time": "09:20", "type": "text" }
     ]
   },
   {
@@ -107,9 +131,9 @@
     "unreadCount": 0,
     "status": "offline",
     "messages": [
-      { "id": 1, "sender": "other", "text": "Selamat siang, menginformasikan bahwa unit servis no #INV-2938 sudah kami terima.", "time": "Senin" },
-      { "id": 2, "sender": "other", "text": "Unit sedang dalam pengerjaan teknisi.", "time": "Selasa" },
-      { "id": 3, "sender": "other", "text": "Unit sudah selesai diperbaiki dan bisa diambil di gerai.", "time": "11:30" }
+      { "id": 1, "sender": "other", "text": "Selamat siang, menginformasikan bahwa unit servis no #INV-2938 sudah kami terima.", "time": "Senin", "type": "text" },
+      { "id": 2, "sender": "other", "text": "Unit sedang dalam pengerjaan teknisi.", "time": "Selasa", "type": "text" },
+      { "id": 3, "sender": "other", "text": "Unit sudah selesai diperbaiki dan bisa diambil di gerai.", "time": "11:30", "type": "text" }
     ]
   },
   {
@@ -121,7 +145,7 @@
     "unreadCount": 1,
     "status": "offline",
     "messages": [
-      { "id": 1, "sender": "other", "text": "Selamat! Anda terpilih mendapatkan voucher belanja 1 juta rupiah. Klik link berikut untuk klaim: http://fake-link.com", "time": "02:00" }
+      { "id": 1, "sender": "other", "text": "Selamat! Anda terpilih mendapatkan voucher belanja 1 juta rupiah. Klik link berikut untuk klaim: http://fake-link.com", "time": "02:00", "type": "text" }
     ]
   }
 ]

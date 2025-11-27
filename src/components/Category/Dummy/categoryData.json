@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Elektronik",
+    "slug": "elektronik",
+    "icon": "solar:devices-bold-duotone",
+    "image": "https://images.unsplash.com/photo-1498049381145-06f590d12426?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    "itemCount": 1250,
+    "subCategories": [
+      "Handphone", "Tablet", "Laptop", "Kamera", "Printer", "Smartwatch", "Aksesoris HP", "Komponen PC", "Monitor", "Mouse & Keyboard", "Speaker", "Headset", "Powerbank", "Kabel Data", "Charger"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Fashion Pria",
+    "slug": "fashion-pria",
+    "icon": "solar:t-shirt-bold-duotone",
+    "image": "https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    "itemCount": 850,
+    "subCategories": [
+      "Kaos", "Kemeja", "Celana Jeans", "Celana Chino", "Jaket", "Hoodie", "Sweater", "Jas Formal", "Baju Batik", "Celana Pendek", "Dalam Pria", "Aksesoris", "Topi", "Ikat Pinggang", "Dompet"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Fashion Wanita",
+    "slug": "fashion-wanita",
+    "icon": "solar:skirt-bold-duotone",
+    "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    "itemCount": 2100,
+    "subCategories": [
+      "Dress", "Blouse", "Kemeja Wanita", "Rok", "Celana Kulot", "Jeans Wanita", "Outerwear", "Cardigan", "Gamis", "Jilbab", "Pakaian Dalam", "Baju Tidur", "Tas Wanita", "Sepatu Heels", "Flat Shoes"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Kecantikan",
+    "slug": "kecantikan",
+    "icon": "solar:cosmetic-bold-duotone",
+    "image": "https://images.unsplash.com/photo-1596462502278-27bfdd403348?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    "itemCount": 540,
+    "subCategories": [
+      "Skincare Wajah", "Makeup Wajah", "Lipstik", "Bedak", "Mascara", "Eyeliner", "Perawatan Rambut", "Perawatan Tubuh", "Parfum", "Nail Art", "Alat Makeup", "Masker Wajah", "Serum", "Toner", "Sunscreen"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Makanan & Minuman",
+    "slug": "makanan-minuman",
+    "icon": "solar:bottle-bold-duotone",
+    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    "itemCount": 320,
+    "subCategories": [
+      "Makanan Ringan", "Minuman Instan", "Kopi", "Teh", "Susu", "Bumbu Masak", "Bahan Kue", "Makanan Kaleng", "Mie Instan", "Pasta", "Minyak Goreng", "Beras", "Gula", "Cokelat", "Permen"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Ibu & Bayi",
+    "slug": "ibu-bayi",
+    "icon": "solar:bottle-bold-duotone",
+    "image": "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    "itemCount": 180,
+    "subCategories": [
+      "Popok Bayi", "Pakaian Bayi", "Perlengkapan Makan", "Susu Formula", "Bubur Bayi", "Stroller", "Gendongan", "Mainan Bayi", "Perawatan Kulit", "Minyak Telon", "Tas Bayi", "Baju Hamil", "Pompa ASI", "Botol Susu", "Alat Mandi"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Otomotif",
+    "slug": "otomotif",
+    "icon": "solar:wheel-bold-duotone",
+    "image": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    "itemCount": 450,
+    "subCategories": [
+      "Aksesoris Mobil", "Aksesoris Motor", "Oli & Pelumas", "Ban Mobil", "Ban Motor", "Helm", "Jaket Riding", "Sarung Tangan", "Sparepart Mobil", "Sparepart Motor", "Perawatan Kendaraan", "Audio Mobil", "Lampu Kendaraan", "Knalpot", "Velg"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Olahraga",
+    "slug": "olahraga",
+    "icon": "solar:dumbbell-large-bold-duotone",
+    "image": "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    "itemCount": 670,
+    "subCategories": [
+      "Sepatu Lari", "Pakaian Olahraga", "Alat Fitness", "Sepeda", "Aksesoris Sepeda", "Bola Sepak", "Jersey Bola", "Raket Badminton", "Sepatu Badminton", "Perlengkapan Renang", "Camping & Hiking", "Yoga Mat", "Dumbbell", "Tali Skipping", "Tas Olahraga"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Buku & Alat Tulis",
+    "slug": "buku-alat-tulis",
+    "icon": "solar:notebook-bold-duotone",
+    "image": "https://images.unsplash.com/photo-1524578271613-d550eacf6090?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    "itemCount": 1100,
+    "subCategories": [
+      "Buku Tulis", "Pulpen", "Pensil", "Spidol", "Penghapus", "Penggaris", "Buku Novel", "Buku Pelajaran", "Komik", "Majalah", "Kamus", "Alat Lukis", "Kertas HVS", "Amplop", "Binder"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Kesehatan",
+    "slug": "kesehatan",
+    "icon": "solar:heart-pulse-bold-duotone",
+    "image": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    "itemCount": 890,
+    "subCategories": [
+      "Masker Medis", "Vitamin", "Suplemen", "Obat Herbal", "Alat P3K", "Termometer", "Timbangan Badan", "Pembalut", "Kondom", "Tes Kehamilan", "Minyak Angin", "Salep Kulit", "Obat Mata", "Perawatan Gigi", "Hand Sanitizer"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Mainan & Hobi",
+    "slug": "mainan-hobi",
+    "icon": "solar:gamepad-bold-duotone",
+    "image": "https://images.unsplash.com/photo-1566576912906-600aceebca9b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    "itemCount": 430,
+    "subCategories": [
+      "Action Figure", "Lego", "Boneka", "Mainan Edukasi", "Board Game", "Kartu Mainan", "Mobil Remote", "Drone", "Diecast", "Puzzle", "Squishy", "Slime", "Alat Musik", "Perlengkapan Jahit", "Koleksi Uang Kuno"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Rumah Tangga",
+    "slug": "rumah-tangga",
+    "icon": "solar:sofa-bold-duotone",
+    "image": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    "itemCount": 1500,
+    "subCategories": [
+      "Dekorasi Dinding", "Jam Dinding", "Lampu Hias", "Sprei & Bedcover", "Bantal & Guling", "Karpet", "Tirai", "Alat Kebersihan", "Tempat Penyimpanan", "Peralatan Dapur", "Peralatan Makan", "Furniture", "Tanaman Hias", "Pengharum Ruangan", "Perkakas Rumah"
+    ]
+  }
+]

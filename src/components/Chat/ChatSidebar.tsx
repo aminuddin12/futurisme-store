@@ -50,52 +50,82 @@ export default function ChatSidebar({
     if (activeFilter === 'Semua') return true;
     if (activeFilter === 'Belum Dibaca') return !contact.isRead;
     if (activeFilter === 'Sudah Dibaca') return contact.isRead;
-    // Asumsi sederhana untuk deteksi Spam berdasarkan nama untuk demo
     if (activeFilter === 'Spam') return contact.name.toLowerCase().includes('spam');
     return true;
   });
 
+  // Fungsi untuk menghitung jumlah item per filter
+  const getFilterCount = (filter: FilterType) => {
+    if (filter === 'Semua') return contacts.length;
+    if (filter === 'Belum Dibaca') return contacts.filter(c => !c.isRead).length;
+    if (filter === 'Sudah Dibaca') return contacts.filter(c => c.isRead).length;
+    if (filter === 'Spam') return contacts.filter(c => c.name.toLowerCase().includes('spam')).length;
+    return 0;
+  };
+
   const filters: FilterType[] = ['Semua', 'Belum Dibaca', 'Sudah Dibaca', 'Spam'];
 
   return (
-    <div className={`w-full md:w-[35%] border-r border-gray-100 dark:border-gray-800 flex flex-col bg-white dark:bg-gray-900 h-full ${isMobileChatActive ? 'hidden md:flex' : 'flex'}`}>
+    <div className={`w-full border-r border-gray-100 dark:border-gray-800 flex flex-col bg-white dark:bg-gray-900 h-full ${isMobileChatActive ? 'hidden md:flex' : 'flex'}`}>
       
       {/* Sidebar Header dengan Filter */}
-      <div className="px-4 pt-4 pb-2 shrink-0 border-b border-gray-50 dark:border-gray-800 flex flex-col gap-3">
-        <div className="flex items-center justify-between">
+      <div className="px-4 pt-4 pb-2 shrink-0 border-b border-gray-50 dark:border-gray-800 flex flex-col gap-3 relative">
+        <div className="flex items-center justify-between px-1">
           <h3 className="font-bold text-gray-800 dark:text-gray-100 text-lg">Pesan</h3>
-          <div className="bg-gray-100 dark:bg-gray-800 text-xs font-medium px-2 py-1 rounded-full text-gray-500 dark:text-gray-400">
-              {filteredContacts.length} Chat
-          </div>
+          {/* Kode penghitung chat lama dihapus di sini */}
         </div>
 
-        {/* Filter Tabs (Horizontal Scroll) */}
-        <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200 border
-                ${activeFilter === filter 
-                  ? 'bg-primary text-white border-primary shadow-sm shadow-green-100 dark:shadow-none' 
-                  : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
-                }`}
-            >
-              {filter}
-            </button>
-          ))}
+        {/* Wrapper Filter Tabs dengan Gradasi Indikator Scroll */}
+        <div className="relative w-full">
+          <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 px-1 relative z-10">
+            {filters.map((filter) => {
+              const isActive = activeFilter === filter;
+              const count = getFilterCount(filter);
+
+              return (
+                <button
+                  key={filter}
+                  onClick={() => setActiveFilter(filter)}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200 border shrink-0
+                    ${isActive 
+                      ? 'bg-primary text-white border-primary shadow-sm shadow-green-100 dark:shadow-none' 
+                      : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
+                    }`}
+                >
+                  <span>{filter}</span>
+                  
+                  {/* Badge Penghitungan Baru */}
+                  {count > 0 && (
+                    <span className={`flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-[10px] font-bold leading-none transition-colors
+                      ${isActive 
+                        ? 'bg-white text-primary' 
+                        : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300'
+                      }`}
+                    >
+                      {count}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+            {/* Spacer kecil di akhir list agar item terakhir tidak mepet gradasi */}
+            <div className="w-4 shrink-0 h-1"></div>
+          </div>
+
+          {/* Gradasi Kanan (Indikator Scroll) */}
+          <div className="absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-white via-white/80 to-transparent dark:from-gray-900 dark:via-gray-900/80 pointer-events-none z-20"></div>
         </div>
       </div>
 
       {/* List Kontak */}
-      <div className="flex-1 overflow-y-auto scrollbar-hide p-3">
+      <div className="flex-1 overflow-y-auto scrollbar-hide px-3 pt-3 pb-28">
         {filteredContacts.length > 0 ? (
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="space-y-1"
-            key={activeFilter} // Re-animate saat filter berubah
+            key={activeFilter} 
           >
             {filteredContacts.map((contact) => {
               const isActive = activeContactId === contact.id;
@@ -173,9 +203,9 @@ export default function ChatSidebar({
             })}
           </motion.div>
         ) : (
-          <div className="flex flex-col items-center justify-center h-40 text-gray-400 dark:text-gray-500 gap-2">
+          <div className="flex flex-col items-center justify-center h-full min-h-[200px] text-gray-400 dark:text-gray-500 gap-2 animate-pulse">
             <Icon icon="fluent:chat-dismiss-24-regular" className="text-4xl opacity-50" />
-            <p className="text-xs">Tidak ada pesan di filter ini</p>
+            <p className="text-xs text-center">Tidak ada pesan di filter ini</p>
           </div>
         )}
       </div>

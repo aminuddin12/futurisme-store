@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation'; // Import usePathname
 import { motion, AnimatePresence } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import { Contact } from './types';
@@ -17,6 +18,7 @@ import ChatMainPanelEmpty from './ChatMainPanelEmpty';
 import chatDataDummy from './Dummy/chatData.json';
 
 export default function ChatBaloon() {
+  const pathname = usePathname(); // Dapatkan path saat ini
   const [isOpen, setIsOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false); 
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -28,18 +30,8 @@ export default function ChatBaloon() {
 
   // --- FUNGSI LOAD DATA DUMMY ---
   useEffect(() => {
-    // Simulasi fetching data
     const loadContacts = () => {
-      // =====================================================================
-      // KOMENTARI BARIS 'setContacts' DI BAWAH INI UNTUK MELIHAT TAMPILAN EMPTY / KOSONG
-      // =====================================================================
-      
       setContacts(chatDataDummy as unknown as Contact[]);
-      
-      // Jika data berhasil dimuat, set kontak pertama sebagai aktif (opsional)
-      // if (chatDataDummy && chatDataDummy.length > 0) {
-      //   setActiveContactId(chatDataDummy[0].id);
-      // }
     };
 
     loadContacts();
@@ -78,6 +70,11 @@ export default function ChatBaloon() {
     };
   }, [isOpen]);
 
+  // UPDATE: Sembunyikan komponen jika berada di halaman /chat
+  if (pathname === '/chat') {
+    return null;
+  }
+
   return (
     <>
       {/* --- Backdrop Blur (Overlay) --- */}
@@ -89,7 +86,7 @@ export default function ChatBaloon() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 z-100 bg-black/20 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] bg-black/20 backdrop-blur-sm"
           />
         )}
       </AnimatePresence>
@@ -104,7 +101,7 @@ export default function ChatBaloon() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-110 flex items-center gap-2 bg-primary text-white px-5 py-3 rounded-full shadow-lg shadow-primary/30 hover:bg-green-600 transition-colors"
+            className="fixed bottom-6 right-6 z-[110] hidden md:flex items-center gap-2 bg-primary text-white px-5 py-3 rounded-full shadow-lg shadow-primary/30 hover:bg-green-600 transition-colors"
           >
             <Icon icon="fluent:chat-bubbles-question-24-filled" className="text-2xl" />
             <span className="font-bold">Chat</span>
@@ -120,10 +117,10 @@ export default function ChatBaloon() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-6 right-6 z-110 w-[90vw] md:w-[940px] h-[80vh] md:h-[625px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col overflow-hidden"
+            className="fixed bottom-6 right-6 z-[110] w-[90vw] md:w-[940px] h-[80vh] md:h-[625px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col overflow-hidden"
           >
             {/* --- Header Utama --- */}
-            <div className="h-14 bg-primary text-white flex items-center justify-between px-4 shrink-0 z-20 shadow-sm">
+            <div className="h-[56px] bg-primary text-white flex items-center justify-between px-4 shrink-0 z-20 shadow-sm">
                 <div className="flex items-center gap-2 font-bold text-lg">
                     <Icon icon="fluent:chat-bubbles-24-filled" className="text-xl" />
                     <span>Text Messaging</span>
@@ -160,16 +157,18 @@ export default function ChatBaloon() {
                 </AnimatePresence>
 
                 {/* === SIDEBAR (Kiri) === */}
-                {currentContacts.length > 0 ? (
-                    <ChatSidebar 
-                        contacts={currentContacts}
-                        activeContactId={activeContactId || 0}
-                        onSelectContact={handleContactSelect}
-                        isMobileChatActive={isMobileChatActive}
-                    />
-                ) : (
-                    <ChatSidebarEmpty />
-                )}
+                <div className={`w-full md:w-[35%] h-full flex flex-col border-r border-gray-100 dark:border-gray-800 ${isMobileChatActive ? 'hidden md:flex' : 'flex'}`}>
+                    {currentContacts.length > 0 ? (
+                        <ChatSidebar 
+                            contacts={currentContacts}
+                            activeContactId={activeContactId || 0}
+                            onSelectContact={handleContactSelect}
+                            isMobileChatActive={isMobileChatActive}
+                        />
+                    ) : (
+                        <ChatSidebarEmpty />
+                    )}
+                </div>
 
                 {/* === MAIN PANEL (Kanan) === */}
                 {currentContacts.length > 0 && activeContact ? (
