@@ -1,0 +1,7 @@
+{
+  "title": "Login Account",
+  "email_placeholder": "Enter your email",
+  "password_placeholder": "Enter password",
+  "submit": "Sign In",
+  "register_prompt": "No account? Register"
+}

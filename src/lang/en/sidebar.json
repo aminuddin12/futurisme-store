@@ -1,0 +1,16 @@
+{
+  "menu": "Menu",
+  "nav_title": "NAVIGATION",
+  "home": "Home",
+  "category": "Category",
+  "feed": "Feed",
+  "cart": "Cart",
+  "chat": "Messages",
+  "profile": "Profile",
+  "others_title": "OTHERS",
+  "settings": "Settings",
+  "help": "Help",
+  "guest": "Guest",
+  "welcome": "Welcome!",
+  "login": "Login"
+}

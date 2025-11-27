@@ -1,24 +1,23 @@
 'use client';
 
 import { Icon } from '@iconify/react';
-import { useSearch } from '@/context/SearchContext'; // Import Context
+import { useSearch } from '@/context/SearchContext';
+import { useTranslation } from '@/context/LanguageContext'; // Import hook useTranslation
 
 export default function CenterBarRight() {
-  // Menggunakan Context Global, bukan state lokal lagi
   const { openSearch } = useSearch();
+  const { t } = useTranslation(); // Gunakan hook
 
   return (
     <>
-      {/* SearchPopup dihapus dari sini karena sudah ada di Layout global */}
-
       <div className="flex items-center gap-2 md:gap-4">
         
         {/* Tombol Cari Mobile */}
         <button 
-          onClick={openSearch} // Panggil fungsi dari context
+          onClick={openSearch}
           className="lg:hidden w-9 h-9 flex items-center justify-center rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         >
-          <Icon icon="solar:minimalistic-magnifer-bold-duotone" className="text-2xl" />
+          <Icon icon="solar:magnifer-linear" className="text-2xl" />
         </button>
 
         {/* Tombol Tambahan (Tablet & Desktop) */}
@@ -45,10 +44,10 @@ export default function CenterBarRight() {
         {/* Auth Buttons */}
         <div className="hidden md:flex gap-2 ml-1">
           <button className="px-5 py-2 rounded-lg border border-gray-200 dark:border-gray-700 font-bold text-sm text-gray-600 dark:text-gray-300 hover:border-primary dark:hover:border-primary hover:text-primary dark:hover:text-primary hover:bg-green-50 dark:hover:bg-green-900/20 transition-all">
-            Masuk
+            {t('auth.login')}
           </button>
           <button className="px-5 py-2 rounded-lg bg-primary font-bold text-sm text-white hover:bg-green-600 hover:shadow-lg hover:shadow-green-200 dark:hover:shadow-green-900/20 transition-all transform hover:-translate-y-0.5">
-            Daftar
+            {t('auth.register')}
           </button>
         </div>
       </div>

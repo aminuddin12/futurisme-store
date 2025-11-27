@@ -1,0 +1,41 @@
+{
+  "main": [
+    {
+      "translationKey": "home",
+      "href": "/",
+      "icon": "solar:home-2-bold-duotone"
+    },
+    {
+      "translationKey": "category",
+      "href": "/category",
+      "icon": "solar:server-2-bold-duotone"
+    },
+    {
+      "translationKey": "cart",
+      "href": "/cart",
+      "icon": "solar:cart-3-bold-duotone"
+    },
+    {
+      "translationKey": "chat",
+      "href": "/chat",
+      "icon": "solar:chat-round-bold-duotone"
+    },
+    {
+      "translationKey": "profile",
+      "href": "/profile",
+      "icon": "solar:user-rounded-bold-duotone"
+    }
+  ],
+  "secondary": [
+    {
+      "translationKey": "settings",
+      "href": "/settings",
+      "icon": "solar:settings-bold-duotone"
+    },
+    {
+      "translationKey": "help",
+      "href": "/help",
+      "icon": "solar:question-circle-bold-duotone"
+    }
+  ]
+}

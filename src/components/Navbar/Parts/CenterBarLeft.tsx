@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { Icon } from '@iconify/react';
+import Logo from '../../Logo'; // Import komponen Logo
 
 interface CenterBarLeftProps {
   onSidebarClick?: () => void;
@@ -31,13 +31,9 @@ export default function CenterBarLeft({ onSidebarClick }: CenterBarLeftProps) {
 
       {/* Logo Link (Desktop Only) */}
       {/* Hilang di layar kecil, muncul di layar besar (lg) */}
-      <Link 
-        href="/" 
-        className="hidden lg:flex text-2xl font-extrabold text-primary tracking-tighter items-center gap-1 group ml-2"
-      >
-        <i className="fas fa-shopping-bag group-hover:rotate-12 transition-transform"></i>
-        <span>SHOP</span>
-      </Link>
+      <div className="hidden lg:flex ml-2">
+        <Logo />
+      </div>
     </div>
   );
 }

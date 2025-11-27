@@ -1,39 +1,116 @@
 {
-  "status": 503,
-  "success": false,
-  "isMaintenance": true,
-  "errorCode": "SERVICE_UNDER_MAINTENANCE",
-  "message": "Sistem sedang dalam perbaikan berkala untuk meningkatkan stabilitas dan performa.",
+  "status": 200,
+  "success": true,
+  "isMaintenance": false,
+  "errorCode": null,
+  "message": "Sistem berjalan normal.",
   "timestamp": "2025-11-27T10:00:00Z",
-  "maintenanceDetail": {
-    "startTime": "2025-11-27T09:00:00Z",
-    "estimatedEndTime": "2025-11-27T12:00:00Z",
-    "reason": "Database Migration & Security Patching"
-  },
+  "maintenanceDetail": null,
   "data": [
     {
-      "id": "conf_001",
-      "key": "app_version",
-      "value": "2.1.0",
-      "description": "Current active application version"
+      "id": "conf_app_info",
+      "key": "app_info",
+      "value": {
+        "name": "Futurisme Store",
+        "tagline": "Masa Depan Belanja Anda",
+        "description": "Platform e-commerce terdepan yang menyediakan produk teknologi dan gaya hidup masa depan.",
+        "logo": {
+          "main": "/assets/logo-main.svg",
+          "alt": "/assets/logo-white.svg",
+          "icon": "/assets/favicon.ico"
+        },
+        "themeColor": "#00AA5B",
+        "copyright": "© 2025 Futurisme Store. All rights reserved."
+      },
+      "description": "Identitas utama aplikasi"
     },
     {
-      "id": "conf_002",
+      "id": "conf_localization",
+      "key": "localization",
+      "value": {
+        "defaultLanguage": "id",
+        "supportedLanguages": [
+          { "code": "id", "name": "Bahasa Indonesia", "flag": "🇮🇩" },
+          { "code": "en", "name": "English", "flag": "🇺🇸" }
+        ],
+        "defaultCurrency": "IDR",
+        "currencyFormat": {
+          "locale": "id-ID",
+          "currency": "IDR",
+          "symbol": "Rp"
+        }
+      },
+      "description": "Pengaturan bahasa dan mata uang"
+    },
+    {
+      "id": "conf_features",
       "key": "feature_flags",
       "value": {
         "enableChat": true,
         "enablePromoPopup": true,
-        "enableDarkTheme": true
-      }
+        "enableDarkTheme": true,
+        "enableWishlist": true,
+        "enableCart": true,
+        "enableFlashSale": true,
+        "enableBlog": false,
+        "enableLiveStreaming": false
+      },
+      "description": "Kontrol fitur aktif/non-aktif (Toggle)"
     },
     {
-      "id": "conf_003",
+      "id": "conf_contact",
       "key": "support_contact",
       "value": {
         "email": "support@futurismestore.com",
         "phone": "+6281234567890",
-        "whatsapp": "https://wa.me/6281234567890"
-      }
+        "whatsapp": "https://wa.me/6281234567890",
+        "address": "Jl. Teknologi Masa Depan No. 88, Cyber City, Jakarta Selatan, Indonesia",
+        "operationalHours": "Senin - Minggu, 09:00 - 21:00 WIB"
+      },
+      "description": "Informasi kontak layanan pelanggan"
+    },
+    {
+      "id": "conf_social",
+      "key": "social_media",
+      "value": {
+        "instagram": "https://instagram.com/futurismestore",
+        "facebook": "https://facebook.com/futurismestore",
+        "twitter": "https://twitter.com/futurismestore",
+        "tiktok": "https://tiktok.com/@futurismestore",
+        "youtube": "https://youtube.com/futurismestore"
+      },
+      "description": "Tautan media sosial resmi"
+    },
+    {
+      "id": "conf_seo",
+      "key": "seo_settings",
+      "value": {
+        "defaultTitle": "Futurisme Store - Belanja Masa Depan",
+        "titleTemplate": "%s | Futurisme Store",
+        "defaultDescription": "Temukan gadget, fashion, dan kebutuhan harian dengan teknologi terkini di Futurisme Store. Jaminan original dan pengiriman cepat.",
+        "defaultKeywords": ["ecommerce", "belanja online", "gadget", "fashion", "teknologi", "promo", "indonesia"],
+        "ogImage": "https://futurismestore.com/assets/og-image-default.jpg",
+        "twitterCard": "summary_large_image"
+      },
+      "description": "Pengaturan default untuk SEO Meta Tags"
+    },
+    {
+      "id": "conf_payment",
+      "key": "payment_methods",
+      "value": [
+        { "id": "bank_transfer", "name": "Transfer Bank", "enabled": true },
+        { "id": "credit_card", "name": "Kartu Kredit/Debit", "enabled": true },
+        { "id": "ewallet", "name": "E-Wallet (GoPay, OVO, Dana)", "enabled": true },
+        { "id": "cod", "name": "Bayar di Tempat (COD)", "enabled": true },
+        { "id": "paylater", "name": "PayLater", "enabled": false }
+      ],
+      "description": "Metode pembayaran yang tersedia"
+    },
+    {
+      "id": "conf_version",
+      "key": "app_version",
+      "value": "2.1.0",
+      "description": "Versi aplikasi saat ini"
     }
   ]
 }

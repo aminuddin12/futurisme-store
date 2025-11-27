@@ -1,0 +1,39 @@
+{
+  "status": 503,
+  "success": false,
+  "isMaintenance": true,
+  "errorCode": "SERVICE_UNDER_MAINTENANCE",
+  "message": "Sistem sedang dalam perbaikan berkala untuk meningkatkan stabilitas dan performa.",
+  "timestamp": "2025-11-27T10:00:00Z",
+  "maintenanceDetail": {
+    "startTime": "2025-11-27T09:00:00Z",
+    "estimatedEndTime": "2025-11-27T12:00:00Z",
+    "reason": "Database Migration & Security Patching"
+  },
+  "data": [
+    {
+      "id": "conf_001",
+      "key": "app_version",
+      "value": "2.1.0",
+      "description": "Current active application version"
+    },
+    {
+      "id": "conf_002",
+      "key": "feature_flags",
+      "value": {
+        "enableChat": true,
+        "enablePromoPopup": true,
+        "enableDarkTheme": true
+      }
+    },
+    {
+      "id": "conf_003",
+      "key": "support_contact",
+      "value": {
+        "email": "support@futurismestore.com",
+        "phone": "+6281234567890",
+        "whatsapp": "https://wa.me/6281234567890"
+      }
+    }
+  ]
+}
