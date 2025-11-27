@@ -32,6 +32,7 @@ export default function ProductListDemo() {
         // Tidak perlu memikirkan header, token, atau base URL
         const response = await service.get<ProductResponse>('/products');
         setProducts(response.data);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (err: any) {
         // Error handling terpusat
         setError(err.message);

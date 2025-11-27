@@ -8,12 +8,8 @@ import OfflinePage from '@/components/Offline/OfflinePage';
 import CustomHomePopup from '@/components/Popup/CustomHomePopup';
 import GlobalSearchPopup from '@/components/Popup/GlobalSearchPopup';
 import { MSWProvider } from '@/components/Providers/MSWProvider';
-
-// Import Halaman Maintenance untuk ditampilkan kondisional
-import Maintenance from '@/app/maintenance/page';
-
-// Import konfigurasi web dummy
-import webConfig from '@/data/web-config.json';
+import AppConfigWrapper from '@/components/Wrappers/AppConfigWrapper';
+import EnvChecker from '@/components/Wrappers/EnvChecker'; // Import Checker
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,9 +18,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Cek status maintenance dari config
-  const isMaintenanceMode = webConfig.isMaintenance;
-
   return (
     <html lang="id" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
@@ -37,34 +30,31 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden transition-colors duration-300`}>
         <Providers>
-          <MSWProvider>
+          {/* 1. Env Checker: Validasi Kunci API sebelum aplikasi jalan */}
+          <EnvChecker>
             
-            {/* LOGIKA MAINTENANCE */}
-            {isMaintenanceMode ? (
-              // Tampilkan HANYA halaman maintenance jika config aktif
-              <Maintenance />
-            ) : (
-              // Tampilkan aplikasi normal jika tidak maintenance
-              <>
-                {children}
-                
-                {/* Bottom Navbar untuk Mobile */}
-                <BottomNavbar />
+            <MSWProvider>
+              
+              {/* 2. AppConfigWrapper: Cek Maintenance Mode */}
+              <AppConfigWrapper>
+                  
+                  {children}
+                  
+                  <BottomNavbar />
 
-                {/* Global Widgets */}
-                <div className="hidden lg:block">
-                  <ChatBaloon />
-                </div>
-                
-                <OfflinePage />
-                <CustomHomePopup />
-                
-                {/* Popup Pencarian Global */}
-                <GlobalSearchPopup />
-              </>
-            )}
+                  <div className="hidden lg:block">
+                    <ChatBaloon />
+                  </div>
+                  
+                  <OfflinePage />
+                  <CustomHomePopup />
+                  <GlobalSearchPopup />
 
-          </MSWProvider>
+              </AppConfigWrapper>
+
+            </MSWProvider>
+
+          </EnvChecker>
         </Providers>
       </body>
     </html>

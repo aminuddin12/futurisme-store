@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Icon } from '@iconify/react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants, type Transition } from 'framer-motion';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -40,21 +40,23 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   }, [isOpen]);
 
   // Variasi Animasi Sidebar
-  const sidebarVariants = {
-    closed: { 
-      x: "-100%",
+  const springTransition: Transition = { type: 'spring', stiffness: 300, damping: 30 };
+
+  const sidebarVariants: Variants = {
+    closed: {
+      x: '-100%',
       opacity: 0,
-      transition: { type: "spring", stiffness: 300, damping: 30 }
+      transition: springTransition,
     },
-    open: { 
-      x: "0%",
+    open: {
+      x: '0%',
       opacity: 1,
-      transition: { type: "spring", stiffness: 300, damping: 30 }
-    }
+      transition: springTransition,
+    },
   };
 
   // Variasi Animasi Item Menu (Stagger Effect)
-  const containerVariants = {
+  const containerVariants: Variants = {
     open: {
       transition: { staggerChildren: 0.05, delayChildren: 0.1 }
     },
@@ -63,7 +65,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     closed: { x: -20, opacity: 0 },
     open: { x: 0, opacity: 1 }
   };
