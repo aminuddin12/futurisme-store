@@ -1,0 +1,13 @@
+{
+  "title": "Daftar Akun Baru",
+  "subtitle": "Buat akun untuk menikmati fitur eksklusif.",
+  "name_label": "Nama Lengkap",
+  "name_placeholder": "Masukkan nama lengkap",
+  "email_label": "Email",
+  "email_placeholder": "Masukkan email Anda",
+  "password_label": "Kata Sandi",
+  "password_placeholder": "Buat kata sandi",
+  "submit": "Daftar Sekarang",
+  "login_prompt": "Sudah punya akun? Masuk",
+  "or_register_with": "Atau daftar dengan"
+}

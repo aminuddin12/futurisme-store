@@ -8,12 +8,18 @@ import webConfig from '@/data/web-config.json'; // Import data config
 export default function Maintenance() {
   // 1. Ekstrak Data dari Config
   const { message, errorCode, maintenanceDetail, data } = webConfig;
-  
+
+  // 1.a Ensure maintenanceDetail is not null to avoid runtime/TS issues
+  const maintenance = (maintenanceDetail ?? { reason: '-', estimatedEndTime: '' }) as {
+    reason?: string;
+    estimatedEndTime?: string;
+  };
+
   // 2. Cari data contact support dari array data
   const supportContact = data.find(item => item.key === 'support_contact')?.value as { whatsapp: string, email: string } | undefined;
 
   // 3. Helper untuk format tanggal
-  const formatDate = (dateString: string) => {
+  const formatDate = (dateString?: string) => {
     if (!dateString) return '-';
     return new Date(dateString).toLocaleDateString('id-ID', {
       day: 'numeric',
@@ -102,7 +108,7 @@ export default function Maintenance() {
                 <Icon icon="solar:info-circle-bold-duotone" className="text-blue-500 text-xl mt-0.5 shrink-0" />
                 <div>
                     <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-0.5">Alasan</span>
-                    <span className="text-sm font-medium text-gray-800 dark:text-gray-200">{maintenanceDetail.reason}</span>
+                    <span className="text-sm font-medium text-gray-800 dark:text-gray-200">{maintenance.reason || '-'}</span>
                 </div>
             </div>
             
@@ -113,7 +119,7 @@ export default function Maintenance() {
                 <div>
                     <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-0.5">Estimasi Selesai</span>
                     <span className="text-sm font-medium text-gray-800 dark:text-gray-200">
-                        {formatDate(maintenanceDetail.estimatedEndTime)}
+                        {formatDate(maintenance.estimatedEndTime)}
                     </span>
                 </div>
             </div>

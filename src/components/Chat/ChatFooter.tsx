@@ -29,7 +29,7 @@ export default function ChatFooter({ onSendMessage }: ChatFooterProps) {
           value={messageInput}
           onChange={(e) => setMessageInput(e.target.value)}
           placeholder="Ketik pesan..." 
-          className="flex-1 bg-transparent border-none focus:ring-0 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 py-2"
+          className="flex-1 bg-transparent border-none focus:outline-none focus:border-primary focus:ring-2 focus:ring-green-100 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 py-2"
           autoComplete="off"
         />
         

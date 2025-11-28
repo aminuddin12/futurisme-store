@@ -1,0 +1,13 @@
+{
+  "title": "Create New Account",
+  "subtitle": "Create an account to enjoy exclusive features.",
+  "name_label": "Full Name",
+  "name_placeholder": "Enter your full name",
+  "email_label": "Email",
+  "email_placeholder": "Enter your email",
+  "password_label": "Password",
+  "password_placeholder": "Create a password",
+  "submit": "Register Now",
+  "login_prompt": "Already have an account? Login",
+  "or_register_with": "Or register with"
+}

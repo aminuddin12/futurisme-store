@@ -7,9 +7,10 @@ import ChatBaloon from '@/components/Chat/ChatBaloon';
 import OfflinePage from '@/components/Offline/OfflinePage';
 import CustomHomePopup from '@/components/Popup/CustomHomePopup';
 import GlobalSearchPopup from '@/components/Popup/GlobalSearchPopup';
+import LoginPopup from '@/components/Login/LoginPopup'; // Import Login Popup
 import { MSWProvider } from '@/components/Providers/MSWProvider';
 import AppConfigWrapper from '@/components/Wrappers/AppConfigWrapper';
-import EnvChecker from '@/components/Wrappers/EnvChecker'; // Import Checker
+import EnvChecker from '@/components/Wrappers/EnvChecker';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -30,12 +31,8 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden transition-colors duration-300`}>
         <Providers>
-          {/* 1. Env Checker: Validasi Kunci API sebelum aplikasi jalan */}
           <EnvChecker>
-            
             <MSWProvider>
-              
-              {/* 2. AppConfigWrapper: Cek Maintenance Mode */}
               <AppConfigWrapper>
                   
                   {children}
@@ -49,11 +46,12 @@ export default function RootLayout({
                   <OfflinePage />
                   <CustomHomePopup />
                   <GlobalSearchPopup />
+                  
+                  {/* Popup Login Global */}
+                  <LoginPopup />
 
               </AppConfigWrapper>
-
             </MSWProvider>
-
           </EnvChecker>
         </Providers>
       </body>

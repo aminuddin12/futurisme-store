@@ -7,29 +7,32 @@ import { createContext, useContext, useState, ReactNode, useEffect } from 'react
 // Import JSON data statis
 import idSidebar from '@/lang/id/sidebar.json';
 import idLogin from '@/lang/id/login.json';
+import idRegister from '@/lang/id/register.json'; // Import baru
 import idNavbar from '@/lang/id/navbar.json';
-import idAuth from '@/lang/id/auth.json'; // Import baru
+import idAuth from '@/lang/id/auth.json';
 
 import enSidebar from '@/lang/en/sidebar.json';
 import enLogin from '@/lang/en/login.json';
+import enRegister from '@/lang/en/register.json'; // Import baru
 import enNavbar from '@/lang/en/navbar.json';
-import enAuth from '@/lang/en/auth.json'; // Import baru
+import enAuth from '@/lang/en/auth.json';
 
 type Locale = 'id' | 'en';
 
-// Struktur Data Bahasa diperbarui
 const translations = {
   id: {
     sidebar: idSidebar,
     login: idLogin,
+    register: idRegister, // Daftarkan
     navbar: idNavbar,
-    auth: idAuth, // Daftarkan di sini
+    auth: idAuth,
   },
   en: {
     sidebar: enSidebar,
     login: enLogin,
+    register: enRegister, // Daftarkan
     navbar: enNavbar,
-    auth: enAuth, // Daftarkan di sini
+    auth: enAuth,
   },
 };
 

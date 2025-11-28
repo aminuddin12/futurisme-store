@@ -25,24 +25,6 @@
       "description": "Identitas utama aplikasi"
     },
     {
-      "id": "conf_localization",
-      "key": "localization",
-      "value": {
-        "defaultLanguage": "id",
-        "supportedLanguages": [
-          { "code": "id", "name": "Bahasa Indonesia", "flag": "🇮🇩" },
-          { "code": "en", "name": "English", "flag": "🇺🇸" }
-        ],
-        "defaultCurrency": "IDR",
-        "currencyFormat": {
-          "locale": "id-ID",
-          "currency": "IDR",
-          "symbol": "Rp"
-        }
-      },
-      "description": "Pengaturan bahasa dan mata uang"
-    },
-    {
       "id": "conf_features",
       "key": "feature_flags",
       "value": {
@@ -53,21 +35,12 @@
         "enableCart": true,
         "enableFlashSale": true,
         "enableBlog": false,
-        "enableLiveStreaming": false
+        "enableLiveStreaming": false,
+        "enableLoginPopup": false,
+        "enableRegisterPopup": false,
+        "enableSocialLogin": true
       },
       "description": "Kontrol fitur aktif/non-aktif (Toggle)"
-    },
-    {
-      "id": "conf_contact",
-      "key": "support_contact",
-      "value": {
-        "email": "support@futurismestore.com",
-        "phone": "+6281234567890",
-        "whatsapp": "https://wa.me/6281234567890",
-        "address": "Jl. Teknologi Masa Depan No. 88, Cyber City, Jakarta Selatan, Indonesia",
-        "operationalHours": "Senin - Minggu, 09:00 - 21:00 WIB"
-      },
-      "description": "Informasi kontak layanan pelanggan"
     },
     {
       "id": "conf_social",
@@ -80,6 +53,18 @@
         "youtube": "https://youtube.com/futurismestore"
       },
       "description": "Tautan media sosial resmi"
+    },
+    {
+      "id": "conf_contact",
+      "key": "support_contact",
+      "value": {
+        "email": "support@futurismestore.com",
+        "phone": "+6281234567890",
+        "whatsapp": "https://wa.me/6281234567890",
+        "address": "Jl. Teknologi Masa Depan No. 88, Cyber City, Jakarta Selatan, Indonesia",
+        "operationalHours": "Senin - Minggu, 09:00 - 21:00 WIB"
+      },
+      "description": "Informasi kontak layanan pelanggan"
     },
     {
       "id": "conf_seo",
