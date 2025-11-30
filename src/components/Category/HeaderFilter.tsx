@@ -4,20 +4,22 @@ import { useState, useEffect } from 'react';
 import { Icon } from '@iconify/react';
 
 const filterOptions = [
-  { id: 'all', label: 'Semua Kategori', icon: 'solar:layers-minimalistic-bold-duotone' },
-  { id: 'popular', label: 'Kategori Terpopuler', icon: 'solar:fire-bold-duotone' },
-  { id: 'alphabet', label: 'Berdasarkan Alfabet', icon: 'solar:sort-from-top-to-bottom-bold-duotone' },
-  { id: 'group', label: 'Berdasarkan Kelompok', icon: 'solar:users-group-two-rounded-bold-duotone' },
+  { id: 'popular', label: 'Terpopuler', icon: 'solar:fire-bold-duotone' }, // Default
+  { id: 'all', label: 'Semua', icon: 'solar:layers-minimalistic-bold-duotone' },
+  { id: 'alphabet', label: 'A-Z', icon: 'solar:sort-from-top-to-bottom-bold-duotone' },
+  { id: 'group', label: 'Kelompok', icon: 'solar:users-group-two-rounded-bold-duotone' },
 ];
 
-export default function HeaderFilter() {
-  const [activeFilter, setActiveFilter] = useState('all');
+interface HeaderFilterProps {
+  activeFilter: string;
+  onFilterChange: (id: string) => void;
+}
+
+export default function HeaderFilter({ activeFilter, onFilterChange }: HeaderFilterProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Efek Scroll untuk mengubah ukuran
   useEffect(() => {
     const handleScroll = () => {
-      // Ambang batas yang sama dengan Header.tsx agar sinkron
       if (window.scrollY > 50) {
         setIsScrolled(true);
       } else {
@@ -36,17 +38,16 @@ export default function HeaderFilter() {
         return (
           <button
             key={option.id}
-            onClick={() => setActiveFilter(option.id)}
+            onClick={() => onFilterChange(option.id)}
             className={`
               group flex items-center gap-1.5 md:gap-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap border
               ${isActive 
                 ? 'bg-primary text-white border-primary shadow-sm shadow-green-100 dark:shadow-none' 
                 : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
               }
-              /* DINAMIS SIZE BERDASARKAN SCROLL */
               ${isScrolled 
-                ? 'px-3 py-1 text-xs' // Ukuran Kecil saat Scroll
-                : 'px-4 py-2 text-sm' // Ukuran Normal
+                ? 'px-3 py-1 text-xs' 
+                : 'px-4 py-2 text-sm'
               }
             `}
           >
