@@ -26,8 +26,8 @@ export default function Header() {
     // PERBAIKAN: Mengubah top-[60px] menjadi top-[105px] agar sesuai dengan tinggi Navbar Desktop yang fixed.
     // Ini mencegah teks judul tertutup oleh navbar saat discroll.
     <header 
-      className={`hidden md:block w-full bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 sticky top-[105px] z-20 transition-all duration-300 ${
-        isScrolled ? 'py-3 shadow-sm' : 'py-8'
+      className={`hidden md:block w-full bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 sticky top-[80px] z-20 transition-all duration-300 ${
+        isScrolled ? 'py-2 shadow-sm' : 'py-6'
       }`}
     >
       <div className="container mx-auto px-6">

@@ -40,7 +40,7 @@ export default function Navbar() {
         <TopBar />
         {/* Teruskan fungsi buka sidebar ke CenterBar */}
         <CenterBar onSidebarClick={() => setIsSidebarOpen(true)} />
-        <NavBar show={showNavBottom} />
+        <NavBar />
       </header>
     </>
   );
