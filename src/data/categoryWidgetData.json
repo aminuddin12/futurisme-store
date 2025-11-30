@@ -1,0 +1,100 @@
+[
+  {
+    "id": "cat_section_1",
+    "title": "Kategori Pilihan",
+    "type": "default",
+    "items": [
+      { "id": 1, "name": "Elektronik", "icon": "solar:devices-bold-duotone", "href": "/category/elektronik" },
+      { "id": 2, "name": "Fashion Pria", "icon": "solar:t-shirt-bold-duotone", "href": "/category/fashion-pria" },
+      { "id": 3, "name": "Fashion Wanita", "icon": "solar:skirt-bold-duotone", "href": "/category/fashion-wanita" },
+      { "id": 4, "name": "Otomotif", "icon": "solar:wheel-bold-duotone", "href": "/category/otomotif" },
+      { "id": 5, "name": "Kesehatan", "icon": "solar:heart-pulse-bold-duotone", "href": "/category/kesehatan" },
+      { "id": 6, "name": "Hobi", "icon": "solar:gamepad-bold-duotone", "href": "/category/hobi" }
+    ]
+  },
+  {
+    "id": "cat_section_2",
+    "title": "Layanan Digital & Belanja",
+    "type": "type2",
+    "leftContent": {
+      "title": "Belanja Harian",
+      "items": [
+        { "id": 1, "name": "Sayur Segar", "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=300", "href": "/mart/sayur" },
+        { "id": 2, "name": "Daging & Ikan", "image": "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300", "href": "/mart/daging" },
+        { "id": 3, "name": "Bumbu Dapur", "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300", "href": "/mart/bumbu" },
+        { "id": 4, "name": "Buah-buahan", "image": "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=300", "href": "/mart/buah" },
+        { "id": 5, "name": "Susu & Olahan", "image": "https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=300", "href": "/mart/susu" },
+        { "id": 6, "name": "Roti & Kue", "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300", "href": "/mart/roti" },
+        { "id": 7, "name": "Minuman", "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", "href": "/mart/minuman" },
+        { "id": 8, "name": "Camilan", "image": "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=300", "href": "/mart/camilan" }
+      ]
+    },
+    "rightContent": {
+      "tabs": ["Top Up", "Tagihan", "Travel"],
+      "data": {
+        "Top Up": [
+          { "name": "Pulsa", "icon": "solar:iphone-bold-duotone" },
+          { "name": "Data", "icon": "solar:wifi-router-bold-duotone" },
+          { "name": "E-Money", "icon": "solar:wallet-money-bold-duotone" },
+          { "name": "Voucher Game", "icon": "solar:gamepad-bold-duotone" }
+        ],
+        "Tagihan": [
+          { "name": "Listrik PLN", "icon": "solar:bolt-bold-duotone" },
+          { "name": "Air PDAM", "icon": "solar:drop-bold-duotone" },
+          { "name": "BPJS", "icon": "solar:heart-pulse-bold-duotone" },
+          { "name": "Internet", "icon": "solar:global-bold-duotone" }
+        ],
+        "Travel": [
+          { "name": "Tiket Pesawat", "icon": "solar:plane-bold-duotone" },
+          { "name": "Kereta Api", "icon": "solar:train-bold-duotone" },
+          { "name": "Hotel", "icon": "solar:bed-bold-duotone" },
+          { "name": "Bus", "icon": "solar:bus-bold-duotone" }
+        ]
+      }
+    }
+  },
+  {
+    "id": "cat_section_3",
+    "title": "Gaya Hidup & Hiburan",
+    "type": "type3",
+    "leftContent": {
+      "title": "Official Store",
+      "items": [
+        { "id": 1, "name": "Samsung", "image": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=300", "href": "/brand/samsung" },
+        { "id": 2, "name": "Nike", "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300", "href": "/brand/nike" },
+        { "id": 3, "name": "Adidas", "image": "https://images.unsplash.com/photo-1518002171953-a080ee321e2f?w=300", "href": "/brand/adidas" },
+        { "id": 4, "name": "Apple", "image": "https://images.unsplash.com/photo-1621330396173-e41b1cafd17f?w=300", "href": "/brand/apple" }
+      ]
+    },
+    "rightContent": {
+      "tabs": ["Hotel", "Pesawat", "Event"],
+      "data": {
+        "Hotel": [
+          { "name": "Hotel Murah", "icon": "solar:bed-bold-duotone" },
+          { "name": "Villa", "icon": "solar:home-bold-duotone" },
+          { "name": "Apartemen", "icon": "solar:city-bold-duotone" }
+        ],
+        "Pesawat": [
+          { "name": "Domestik", "icon": "solar:plane-bold-duotone" },
+          { "name": "Internasional", "icon": "solar:earth-bold-duotone" },
+          { "name": "Promo", "icon": "solar:ticket-sale-bold-duotone" }
+        ],
+        "Event": [
+          { "name": "Konser", "icon": "solar:music-note-bold-duotone" },
+          { "name": "Bioskop", "icon": "solar:videocamera-bold-duotone" },
+          { "name": "Atraksi", "icon": "solar:ferris-wheel-bold-duotone" }
+        ]
+      }
+    },
+    "popularItems": [
+      { "name": "Kamera Mirrorless", "href": "/search?q=kamera" },
+      { "name": "Sepatu Lari", "href": "/search?q=sepatu" },
+      { "name": "Laptop Gaming", "href": "/search?q=laptop" },
+      { "name": "Smart TV 4K", "href": "/search?q=tv" },
+      { "name": "Skincare Korea", "href": "/search?q=skincare" },
+      { "name": "Meja Kerja Ergonomis", "href": "/search?q=meja" },
+      { "name": "Headphone Bluetooth", "href": "/search?q=headphone" },
+      { "name": "Sepeda Lipat", "href": "/search?q=sepeda" }
+    ]
+  }
+]

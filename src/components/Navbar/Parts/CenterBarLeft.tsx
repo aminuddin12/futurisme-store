@@ -1,7 +1,7 @@
 'use client';
 
 import { Icon } from '@iconify/react';
-import Logo from '../../Logo'; // Import komponen Logo
+import LogoDefault from '../../LogoDefault';
 
 interface CenterBarLeftProps {
   onSidebarClick?: () => void;
@@ -9,30 +9,42 @@ interface CenterBarLeftProps {
 
 export default function CenterBarLeft({ onSidebarClick }: CenterBarLeftProps) {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center gap-3 static md:relative"> 
+      {/* Note: Mengubah 'lg:relative' menjadi 'md:relative' agar layout stabil mulai dari Tablet */}
+      
       {/* Tombol Sidebar (Mobile/Tablet Only) */}
-      {/* Muncul di layar kecil, hilang di layar besar (lg) */}
       <button 
         onClick={onSidebarClick}
-        className="lg:hidden w-10 h-10 flex items-center justify-center text-primary hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors group"
+        className="lg:hidden w-10 h-10 flex items-center justify-center text-primary hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors group z-20"
         aria-label="Menu"
       >
-        {/* Icon Default (Line) - Hilang saat Hover */}
         <Icon 
           icon="solar:sidebar-minimalistic-line-duotone" 
           className="text-2xl block group-hover:hidden transition-transform" 
         />
-        {/* Icon Active/Hover (Bold) - Muncul saat Hover */}
         <Icon 
           icon="solar:sidebar-minimalistic-bold-duotone" 
           className="text-2xl hidden group-hover:block transition-transform" 
         />
       </button>
 
-      {/* Logo Link (Desktop Only) */}
-      {/* Hilang di layar kecil, muncul di layar besar (lg) */}
-      <div className="hidden lg:flex ml-2">
-        <Logo />
+      {/* Logo Aplikasi */}
+      <div className={`
+        /* Mode Mobile (< 768px): Absolute Center */
+        absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 
+        
+        /* Mode Tablet & Desktop (>= 768px): Static (Kiri) */
+        /* Perbaikan: Menggunakan 'md:' alih-alih 'lg:' agar logo pindah ke kiri saat di Tablet, 
+           mencegah tabrakan dengan tombol kanan yang banyak */
+        md:static md:translate-x-0 md:translate-y-0 
+        
+        /* Visibility Rules */
+        flex items-center
+        
+        /* Z-Index agar tidak tertutup */
+        z-10
+      `}>
+        <LogoDefault />
       </div>
     </div>
   );

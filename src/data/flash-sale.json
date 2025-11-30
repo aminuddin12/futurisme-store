@@ -1,0 +1,109 @@
+{
+  "endTime": "2025-12-31T23:59:59Z",
+  "products": [
+    {
+      "id": 101,
+      "name": "Sony WH-1000XM5 Wireless Noise Cancelling Headphones",
+      "slug": "sony-wh-1000xm5",
+      "image": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "originalPrice": 5999000,
+      "discountedPrice": 4499000,
+      "discountPercentage": 25,
+      "soldPercentage": 85,
+      "stock": 15,
+      "rating": 4.9,
+      "reviews": 320
+    },
+    {
+      "id": 102,
+      "name": "Samsung Galaxy Watch 6 Classic 47mm",
+      "slug": "samsung-galaxy-watch-6",
+      "image": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "originalPrice": 6499000,
+      "discountedPrice": 5199000,
+      "discountPercentage": 20,
+      "soldPercentage": 45,
+      "stock": 50,
+      "rating": 4.8,
+      "reviews": 150
+    },
+    {
+      "id": 103,
+      "name": "Nintendo Switch OLED Model - White Joy-Con",
+      "slug": "nintendo-switch-oled",
+      "image": "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "originalPrice": 4800000,
+      "discountedPrice": 3999000,
+      "discountPercentage": 17,
+      "soldPercentage": 92,
+      "stock": 8,
+      "rating": 5.0,
+      "reviews": 540
+    },
+    {
+      "id": 104,
+      "name": "Logitech MX Master 3S Performance Mouse",
+      "slug": "logitech-mx-master-3s",
+      "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "originalPrice": 1699000,
+      "discountedPrice": 1299000,
+      "discountPercentage": 24,
+      "soldPercentage": 60,
+      "stock": 40,
+      "rating": 4.9,
+      "reviews": 210
+    },
+    {
+      "id": 105,
+      "name": "Fujifilm Instax Mini 12 Instant Camera",
+      "slug": "fujifilm-instax-mini-12",
+      "image": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "originalPrice": 1299000,
+      "discountedPrice": 999000,
+      "discountPercentage": 23,
+      "soldPercentage": 30,
+      "stock": 70,
+      "rating": 4.7,
+      "reviews": 85
+    },
+    {
+      "id": 106,
+      "name": "Philips Air Fryer HD9200/90 Low Watt",
+      "slug": "philips-air-fryer",
+      "image": "https://images.unsplash.com/photo-1625857628784-3469616068eb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "originalPrice": 1500000,
+      "discountedPrice": 899000,
+      "discountPercentage": 40,
+      "soldPercentage": 98,
+      "stock": 2,
+      "rating": 4.6,
+      "reviews": 412
+    },
+    {
+      "id": 107,
+      "name": "Nike Air Jordan 1 Low - Panda",
+      "slug": "nike-air-jordan-1-low",
+      "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "originalPrice": 2499000,
+      "discountedPrice": 1899000,
+      "discountPercentage": 24,
+      "soldPercentage": 75,
+      "stock": 25,
+      "rating": 4.8,
+      "reviews": 180
+    },
+    {
+      "id": 108,
+      "name": "Xiaomi Smart Air Purifier 4 Compact",
+      "slug": "xiaomi-air-purifier-4",
+      "image": "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "originalPrice": 1399000,
+      "discountedPrice": 999000,
+      "discountPercentage": 28,
+      "soldPercentage": 15,
+      "stock": 85,
+      "rating": 4.5,
+      "reviews": 60
+    }
+  ]
+}

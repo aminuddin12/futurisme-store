@@ -1,16 +1,11 @@
 'use client';
 
-import Logo from '../../Logo'; // Import komponen Logo baru
-
 export default function CenterBarMiddle() {
   return (
     <div className="flex-1 relative z-50 flex justify-center lg:block">
       
-      {/* Tampilan Mobile: Logo */}
-      <div className="lg:hidden flex items-center justify-center">
-        <Logo />
-      </div>
-
+      {/* Tampilan Mobile: Logo DIHAPUS dari sini (pindah ke CenterBarLeft) */}
+      
       {/* Tampilan Desktop: Form Pencarian */}
       <div className="relative hidden lg:block w-full group">
         {/* Input Search */}
